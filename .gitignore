@@ -5,8 +5,8 @@ node_modules/
 dist/
 build/
 
-# Secrets — never commit (see .env.example)
-.env
+# .env files are intentionally committed for this repo (see README).
+# env.local-style overrides are still ignored.
 .env.local
 .env.*.local
 
