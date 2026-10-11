@@ -1,0 +1,23 @@
+# Render blueprint — one service serves the API + the built SPA (single origin).
+# New → Blueprint → pick this repo, or use the settings below in a Web Service.
+services:
+  - type: web
+    name: dsaforge
+    runtime: node
+    plan: free
+    buildCommand: npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend
+    startCommand: npm start --prefix backend
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      # Atlas connection string — set it in the dashboard (never commit secrets).
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      # Production build defaults to same-origin /api (see frontend/src/services/api.js).
+      - key: VITE_API_URL
+        value: /api
