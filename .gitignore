@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Secrets — never commit (see .env.example)
+.env
+.env.local
+.env.*.local
+
+# C++ toolchain bundle (zig, ~300 MB) — downloaded separately
+tools/
+
+# Logs & OS noise
+*.log
+npm-debug.log*
+yarn-error.log*
+Thumbs.db
+.DS_Store
+
+# Editors
+.vscode/
+.idea/

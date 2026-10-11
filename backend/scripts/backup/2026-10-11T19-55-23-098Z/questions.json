@@ -1,0 +1,3857 @@
+[
+  {
+    "_id": "6acbd016591d83f5d41c5f13",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Two Sum",
+    "description": "Given an array of integers and a target, return the indices of the two numbers that add up to the target. Exactly one solution exists.",
+    "examples": [
+      {
+        "input": "nums = [2,7,11,15], target = 9",
+        "output": "[0,1]",
+        "explanation": "nums[0] + nums[1] == 9, so return [0, 1]."
+      },
+      {
+        "input": "nums = [3,2,4], target = 6",
+        "output": "[1,2]",
+        "explanation": ""
+      }
+    ],
+    "constraints": [
+      "2 <= nums.length <= 10^4",
+      "-10^9 <= nums[i] <= 10^9",
+      "Exactly one valid answer exists."
+    ],
+    "hints": [
+      "Have you tried a hash map of value → index?",
+      "Check the map BEFORE inserting."
+    ],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/two-sum/",
+    "difficulty": "Easy",
+    "topics": [
+      "Array",
+      "Hashing"
+    ],
+    "companies": [
+      "Google",
+      "Amazon"
+    ],
+    "status": "solved",
+    "notes": "Check the map BEFORE inserting, otherwise you can pair an element with itself.",
+    "approach": "Scan the array once, and for every value check whether (target - value) was already seen; store each value's index in a hash map as you go.",
+    "code": "function twoSum(nums, target) {\n  const seen = new Map();\n  for (let i = 0; i < nums.length; i++) {\n    const need = target - nums[i];\n    if (seen.has(need)) return [seen.get(need), i];\n    seen.set(nums[i], i);\n  }\n  return [];\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(n)",
+    "solvedAt": "2026-06-11T10:22:00.000Z",
+    "solvedDateKey": "2026-06-11",
+    "revision": {
+      "nextReviewDate": "2026-11-05T00:00:00.000Z",
+      "lastReviewedAt": "2026-08-17T04:39:00.000Z",
+      "revisionCount": 4,
+      "memoryStrength": 83,
+      "status": "scheduled",
+      "interval": 80,
+      "lastResult": "good",
+      "resultStreak": 4,
+      "weakFlags": [],
+      "totalRevisionSeconds": 240
+    },
+    "mistakes": [],
+    "createdAt": "2026-06-11T10:22:00.000Z",
+    "updatedAt": "2026-08-17T04:39:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f14",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Best Time to Buy and Sell Stock",
+    "description": "You get one buy and one sell on a daily price list. Return the maximum profit, or 0 if no profit is possible.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+    "difficulty": "Easy",
+    "topics": [
+      "Array",
+      "Greedy"
+    ],
+    "companies": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "status": "solved",
+    "notes": "The min-so-far IS the optimal buy for every later day.",
+    "approach": "Track the minimum price seen so far while sweeping left to right; at each day compute profit against that minimum and keep the best.",
+    "code": "function maxProfit(prices) {\n  let min = Infinity, best = 0;\n  for (const p of prices) {\n    min = Math.min(min, p);\n    best = Math.max(best, p - min);\n  }\n  return best;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "solvedAt": "2026-10-11T02:37:00.000Z",
+    "solvedDateKey": "2026-10-11",
+    "revision": {
+      "nextReviewDate": "2026-10-11T00:00:00.000Z",
+      "lastReviewedAt": null,
+      "revisionCount": 0,
+      "memoryStrength": 50,
+      "status": "due",
+      "interval": 0,
+      "lastResult": null,
+      "resultStreak": 0,
+      "weakFlags": [],
+      "totalRevisionSeconds": 0
+    },
+    "mistakes": [],
+    "createdAt": "2026-10-11T02:37:00.000Z",
+    "updatedAt": "2026-10-11T02:37:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f15",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Maximum Subarray",
+    "description": "Find the contiguous segment with the largest sum and return that sum. The array may contain negatives.",
+    "examples": [
+      {
+        "input": "nums = [-2,1,-3,4,-1,2,1,-5,4]",
+        "output": "6",
+        "explanation": "The subarray [4,-1,2,1] has the largest sum 6."
+      },
+      {
+        "input": "nums = [5,4,-1,7,8]",
+        "output": "23",
+        "explanation": ""
+      }
+    ],
+    "constraints": [
+      "1 <= nums.length <= 10^5",
+      "-10^4 <= nums[i] <= 10^4"
+    ],
+    "hints": [
+      "Kadane's algorithm: best ending here vs restart here."
+    ],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/maximum-subarray/",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Dynamic Programming"
+    ],
+    "companies": [
+      "LinkedIn",
+      "Amazon"
+    ],
+    "status": "solved",
+    "notes": "If all numbers are negative the answer is the largest single element — restart rule handles it.",
+    "approach": "Kadane: keep the best sum ending here; if it drops below the current element, restart the segment there.",
+    "code": "function maxSubArray(nums) {\n  let cur = nums[0], best = nums[0];\n  for (let i = 1; i < nums.length; i++) {\n    cur = Math.max(nums[i], cur + nums[i]);\n    best = Math.max(best, cur);\n  }\n  return best;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "solvedAt": "2026-07-26T12:25:00.000Z",
+    "solvedDateKey": "2026-07-26",
+    "revision": {
+      "nextReviewDate": "2026-10-11T00:00:00.000Z",
+      "lastReviewedAt": "2026-09-10T10:36:00.000Z",
+      "revisionCount": 9,
+      "memoryStrength": 37,
+      "status": "due",
+      "interval": 31,
+      "lastResult": "forgot",
+      "resultStreak": 0,
+      "weakFlags": [
+        "low_memory",
+        "recent_forgot",
+        "repeated_hard"
+      ],
+      "totalRevisionSeconds": 540
+    },
+    "mistakes": [
+      {
+        "forgotWhat": "The core trick of reducing the problem to a known pattern.",
+        "gotStuck": "",
+        "mistake": "Went for the brute-force nested loop first and forgot the optimisation entirely.",
+        "insight": "",
+        "result": "hard",
+        "reviewedAt": "2026-08-06T13:00:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f16",
+        "createdAt": "2026-10-11T18:06:14.477Z",
+        "updatedAt": "2026-10-11T18:06:14.477Z"
+      },
+      {
+        "forgotWhat": "",
+        "gotStuck": "",
+        "mistake": "Mutated the input array while iterating, which corrupted later comparisons.",
+        "insight": "",
+        "result": "forgot",
+        "reviewedAt": "2026-08-22T07:55:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f17",
+        "createdAt": "2026-10-11T18:06:14.478Z",
+        "updatedAt": "2026-10-11T18:06:14.478Z"
+      },
+      {
+        "forgotWhat": "That a monotonic deque gives the sliding-window extremum in O(n).",
+        "gotStuck": "",
+        "mistake": "",
+        "insight": "Whenever a window needs min/max, think monotonic deque first.",
+        "result": "hard",
+        "reviewedAt": "2026-08-23T04:19:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f18",
+        "createdAt": "2026-10-11T18:06:14.478Z",
+        "updatedAt": "2026-10-11T18:06:14.478Z"
+      }
+    ],
+    "createdAt": "2026-07-26T12:25:00.000Z",
+    "updatedAt": "2026-09-10T10:36:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f19",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Move Zeroes",
+    "description": "Shift all zeroes to the end of the array while keeping the relative order of the non-zero elements.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/move-zeroes/",
+    "difficulty": "Easy",
+    "topics": [
+      "Array",
+      "Two Pointers"
+    ],
+    "companies": [
+      "Meta"
+    ],
+    "status": "solved",
+    "notes": "Two-pointer swap version avoids the second pass.",
+    "approach": "Maintain a write pointer that only advances when we copy a non-zero value; fill the tail with zeroes afterwards.",
+    "code": "function moveZeroes(nums) {\n  let w = 0;\n  for (let r = 0; r < nums.length; r++) {\n    if (nums[r] !== 0) nums[w++] = nums[r];\n  }\n  while (w < nums.length) nums[w++] = 0;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "solvedAt": "2026-06-07T07:20:00.000Z",
+    "solvedDateKey": "2026-06-07",
+    "revision": {
+      "nextReviewDate": "2027-08-29T00:00:00.000Z",
+      "lastReviewedAt": "2026-10-11T02:15:00.000Z",
+      "revisionCount": 5,
+      "memoryStrength": 97,
+      "status": "mastered",
+      "interval": 322,
+      "lastResult": "easy",
+      "resultStreak": 5,
+      "weakFlags": [],
+      "totalRevisionSeconds": 360
+    },
+    "mistakes": [],
+    "createdAt": "2026-06-07T07:20:00.000Z",
+    "updatedAt": "2026-09-24T12:36:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f1a",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Product of Array Except Self",
+    "description": "Return an array where each position holds the product of every other element, without using division and in linear time.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/product-of-array-except-self/",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Prefix Sum"
+    ],
+    "companies": [
+      "Meta",
+      "Amazon"
+    ],
+    "status": "solved",
+    "notes": "Two passes — prefix pass writes the answer, suffix pass multiplies in.",
+    "approach": "Prefix products from the left, then multiply by suffix products sweeping back from the right.",
+    "code": "function productExceptSelf(nums) {\n  const out = Array(nums.length).fill(1);\n  let prefix = 1;\n  for (let i = 0; i < nums.length; i++) { out[i] = prefix; prefix *= nums[i]; }\n  let suffix = 1;\n  for (let i = nums.length - 1; i >= 0; i--) { out[i] *= suffix; suffix *= nums[i]; }\n  return out;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "solvedAt": "2026-09-05T11:55:00.000Z",
+    "solvedDateKey": "2026-09-05",
+    "revision": {
+      "nextReviewDate": "2026-10-03T00:00:00.000Z",
+      "lastReviewedAt": "2026-10-01T10:11:00.000Z",
+      "revisionCount": 9,
+      "memoryStrength": 15,
+      "status": "scheduled",
+      "interval": 2,
+      "lastResult": "hard",
+      "resultStreak": 0,
+      "weakFlags": [
+        "low_memory",
+        "repeated_hard"
+      ],
+      "totalRevisionSeconds": 540
+    },
+    "mistakes": [
+      {
+        "forgotWhat": "",
+        "gotStuck": "Lost 10 minutes because I did not define what left/right represent.",
+        "mistake": "",
+        "insight": "Always write down the loop invariant before coding.",
+        "result": "forgot",
+        "reviewedAt": "2026-09-20T13:21:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f1b",
+        "createdAt": "2026-10-11T18:06:14.479Z",
+        "updatedAt": "2026-10-11T18:06:14.479Z"
+      },
+      {
+        "forgotWhat": "The core trick of reducing the problem to a known pattern.",
+        "gotStuck": "",
+        "mistake": "Went for the brute-force nested loop first and forgot the optimisation entirely.",
+        "insight": "",
+        "result": "forgot",
+        "reviewedAt": "2026-09-28T12:12:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f1c",
+        "createdAt": "2026-10-11T18:06:14.479Z",
+        "updatedAt": "2026-10-11T18:06:14.479Z"
+      },
+      {
+        "forgotWhat": "The core trick of reducing the problem to a known pattern.",
+        "gotStuck": "",
+        "mistake": "Went for the brute-force nested loop first and forgot the optimisation entirely.",
+        "insight": "",
+        "result": "forgot",
+        "reviewedAt": "2026-09-30T04:48:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f1d",
+        "createdAt": "2026-10-11T18:06:14.479Z",
+        "updatedAt": "2026-10-11T18:06:14.479Z"
+      }
+    ],
+    "createdAt": "2026-09-05T11:55:00.000Z",
+    "updatedAt": "2026-10-01T10:11:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f1e",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Rotate Array",
+    "description": "Rotate the array to the right by k steps, in place.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/rotate-array/",
+    "difficulty": "Medium",
+    "topics": [
+      "Array"
+    ],
+    "companies": [
+      "Apple"
+    ],
+    "status": "solved",
+    "notes": "k %= n first, otherwise huge k overflows the logic.",
+    "approach": "Reverse the whole array, then reverse the first k and the rest — the classic three-reversal trick.",
+    "code": "function rotate(nums, k) {\n  const n = nums.length; k %= n;\n  const rev = (l, r) => { while (l < r) { [nums[l], nums[r]] = [nums[r], nums[l]]; l++; r--; } };\n  rev(0, n - 1); rev(0, k - 1); rev(k, n - 1);\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "solvedAt": "2026-05-31T06:38:00.000Z",
+    "solvedDateKey": "2026-05-31",
+    "revision": {
+      "nextReviewDate": "2027-02-07T00:00:00.000Z",
+      "lastReviewedAt": "2026-09-24T04:58:00.000Z",
+      "revisionCount": 4,
+      "memoryStrength": 87,
+      "status": "mastered",
+      "interval": 136,
+      "lastResult": "good",
+      "resultStreak": 4,
+      "weakFlags": [],
+      "totalRevisionSeconds": 240
+    },
+    "mistakes": [],
+    "createdAt": "2026-05-31T06:38:00.000Z",
+    "updatedAt": "2026-09-24T04:58:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f1f",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Merge Sorted Array",
+    "description": "Merge a second sorted array into the first one which has enough trailing space, keeping the result sorted.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/merge-sorted-array/",
+    "difficulty": "Easy",
+    "topics": [
+      "Array",
+      "Two Pointers"
+    ],
+    "companies": [
+      "Microsoft"
+    ],
+    "status": "solved",
+    "notes": "Backwards fill is what makes it in-place.",
+    "approach": "Fill from the back comparing the largest remaining elements so no value is ever overwritten.",
+    "code": "function merge(nums1, m, nums2, n) {\n  let i = m - 1, j = n - 1, w = m + n - 1;\n  while (j >= 0) {\n    nums1[w--] = i >= 0 && nums1[i] > nums2[j] ? nums1[i--] : nums2[j--];\n  }\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(m + n)",
+    "spaceComplexity": "O(1)",
+    "solvedAt": "2026-08-19T08:36:00.000Z",
+    "solvedDateKey": "2026-08-19",
+    "revision": {
+      "nextReviewDate": "2026-10-11T00:00:00.000Z",
+      "lastReviewedAt": "2026-09-30T04:20:00.000Z",
+      "revisionCount": 3,
+      "memoryStrength": 78,
+      "status": "due",
+      "interval": 12,
+      "lastResult": "good",
+      "resultStreak": 3,
+      "weakFlags": [],
+      "totalRevisionSeconds": 180
+    },
+    "mistakes": [],
+    "createdAt": "2026-08-19T08:36:00.000Z",
+    "updatedAt": "2026-09-30T04:20:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f20",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Trapping Rain Water",
+    "description": "Given bar heights, compute how many units of water are held between the bars after rain.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/trapping-rain-water/",
+    "difficulty": "Hard",
+    "topics": [
+      "Array",
+      "Two Pointers",
+      "Stack"
+    ],
+    "companies": [
+      "Google",
+      "Amazon"
+    ],
+    "status": "solved",
+    "notes": "leftMax/rightMax are what you must never forget; the stack variant does the same per-column.",
+    "approach": "Two pointers: water at a column is bounded by the smaller side's max — move the side with the smaller maximum inward.",
+    "code": "function trap(h) {\n  let l = 0, r = h.length - 1, lm = 0, rm = 0, water = 0;\n  while (l < r) {\n    if (h[l] < h[r]) { lm = Math.max(lm, h[l]); water += lm - h[l++]; }\n    else { rm = Math.max(rm, h[r]); water += rm - h[r--]; }\n  }\n  return water;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "solvedAt": "2026-06-08T11:20:00.000Z",
+    "solvedDateKey": "2026-06-08",
+    "revision": {
+      "nextReviewDate": "2026-10-16T00:00:00.000Z",
+      "lastReviewedAt": "2026-07-26T09:59:00.000Z",
+      "revisionCount": 3,
+      "memoryStrength": 88,
+      "status": "mastered",
+      "interval": 82,
+      "lastResult": "easy",
+      "resultStreak": 3,
+      "weakFlags": [],
+      "totalRevisionSeconds": 180
+    },
+    "mistakes": [],
+    "createdAt": "2026-06-08T11:20:00.000Z",
+    "updatedAt": "2026-07-26T09:59:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f21",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Valid Anagram",
+    "description": "Decide whether two strings are anagrams of each other (same characters, same frequencies, any order).",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/valid-anagram/",
+    "difficulty": "Easy",
+    "topics": [
+      "String",
+      "Hashing"
+    ],
+    "companies": [
+      "Bloomberg"
+    ],
+    "status": "solved",
+    "notes": "Length check first — cheap early exit.",
+    "approach": "Count character frequencies of the first string, decrement with the second, and check everything is zero.",
+    "code": "function isAnagram(a, b) {\n  if (a.length !== b.length) return false;\n  const map = new Map();\n  for (const c of a) map.set(c, (map.get(c) || 0) + 1);\n  for (const c of b) {\n    const n = (map.get(c) || 0) - 1;\n    if (n < 0) return false;\n    map.set(c, n);\n  }\n  return true;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "solvedAt": "2026-07-16T09:09:00.000Z",
+    "solvedDateKey": "2026-07-16",
+    "revision": {
+      "nextReviewDate": "2026-12-10T00:00:00.000Z",
+      "lastReviewedAt": "2026-09-19T04:29:00.000Z",
+      "revisionCount": 4,
+      "memoryStrength": 88,
+      "status": "mastered",
+      "interval": 82,
+      "lastResult": "good",
+      "resultStreak": 4,
+      "weakFlags": [],
+      "totalRevisionSeconds": 240
+    },
+    "mistakes": [],
+    "createdAt": "2026-07-16T09:09:00.000Z",
+    "updatedAt": "2026-09-19T04:29:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f22",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Longest Common Prefix",
+    "description": "Find the longest string prefix shared by every string in a list.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/longest-common-prefix/",
+    "difficulty": "Easy",
+    "topics": [
+      "String"
+    ],
+    "companies": [
+      "Zoho"
+    ],
+    "status": "solved",
+    "notes": "Column-wise scanning works too, but template shrinking is shorter to code.",
+    "approach": "Use the first string as a template and shorten it until it is a prefix of every other string.",
+    "code": "function longestCommonPrefix(strs) {\n  let p = strs[0] || \"\";\n  for (const s of strs) {\n    while (!s.startsWith(p)) p = p.slice(0, -1);\n  }\n  return p;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(S)",
+    "spaceComplexity": "O(1)",
+    "solvedAt": "2026-08-11T09:24:00.000Z",
+    "solvedDateKey": "2026-08-11",
+    "revision": {
+      "nextReviewDate": "2026-12-12T00:00:00.000Z",
+      "lastReviewedAt": "2026-10-05T09:54:00.000Z",
+      "revisionCount": 4,
+      "memoryStrength": 84,
+      "status": "scheduled",
+      "interval": 68,
+      "lastResult": "good",
+      "resultStreak": 4,
+      "weakFlags": [],
+      "totalRevisionSeconds": 240
+    },
+    "mistakes": [],
+    "createdAt": "2026-08-11T09:24:00.000Z",
+    "updatedAt": "2026-10-05T09:54:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f23",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Longest Palindromic Substring",
+    "description": "Return the longest contiguous substring that reads the same forwards and backwards.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/longest-palindromic-substring/",
+    "difficulty": "Medium",
+    "topics": [
+      "String",
+      "Two Pointers"
+    ],
+    "companies": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "status": "solved",
+    "notes": "Manacher is O(n) but expand-around-centre is what interviews expect unless asked otherwise.",
+    "approach": "Expand around every index as a centre (odd and even widths) and keep the widest successful expansion.",
+    "code": "function longestPalindrome(s) {\n  let best = \"\";\n  const expand = (l, r) => {\n    while (l >= 0 && r < s.length && s[l] === s[r]) { l--; r++; }\n    return s.slice(l + 1, r);\n  };\n  for (let i = 0; i < s.length; i++) {\n    for (const p of [expand(i, i), expand(i, i + 1)]) if (p.length > best.length) best = p;\n  }\n  return best;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n^2)",
+    "spaceComplexity": "O(1)",
+    "solvedAt": "2026-07-23T07:35:00.000Z",
+    "solvedDateKey": "2026-07-23",
+    "revision": {
+      "nextReviewDate": "2026-10-11T00:00:00.000Z",
+      "lastReviewedAt": "2026-09-02T05:34:00.000Z",
+      "revisionCount": 4,
+      "memoryStrength": 72,
+      "status": "due",
+      "interval": 40,
+      "lastResult": "good",
+      "resultStreak": 2,
+      "weakFlags": [],
+      "totalRevisionSeconds": 240
+    },
+    "mistakes": [],
+    "createdAt": "2026-07-23T07:35:00.000Z",
+    "updatedAt": "2026-09-02T05:34:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f24",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "String Compression",
+    "description": "Compress a character array into run-length form (a2b1c3) in place, returning the new length.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/string-compression/",
+    "difficulty": "Medium",
+    "topics": [
+      "String",
+      "Two Pointers"
+    ],
+    "companies": [
+      "Google"
+    ],
+    "status": "solved",
+    "notes": "Counts >= 10 must be written digit by digit — easy to forget.",
+    "approach": "Two pointers: a read pointer walks runs, a write pointer emits char + count digits only when the run exceeds 1.",
+    "code": "function compress(chars) {\n  let w = 0, r = 0;\n  while (r < chars.length) {\n    let c = chars[r], n = 0;\n    while (r < chars.length && chars[r] === c) { r++; n++; }\n    chars[w++] = c;\n    if (n > 1) for (const d of String(n)) chars[w++] = d;\n  }\n  return w;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "solvedAt": "2026-06-25T04:48:00.000Z",
+    "solvedDateKey": "2026-06-25",
+    "revision": {
+      "nextReviewDate": "2026-12-06T00:00:00.000Z",
+      "lastReviewedAt": "2026-09-05T12:14:00.000Z",
+      "revisionCount": 4,
+      "memoryStrength": 88,
+      "status": "mastered",
+      "interval": 92,
+      "lastResult": "good",
+      "resultStreak": 4,
+      "weakFlags": [],
+      "totalRevisionSeconds": 240
+    },
+    "mistakes": [],
+    "createdAt": "2026-06-25T04:48:00.000Z",
+    "updatedAt": "2026-09-05T12:14:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f25",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Group Anagrams",
+    "description": "Group a list of strings so each group contains only anagrams of one another.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/group-anagrams/",
+    "difficulty": "Medium",
+    "topics": [
+      "String",
+      "Hashing"
+    ],
+    "companies": [
+      "Amazon"
+    ],
+    "status": "solved",
+    "notes": "Sorting each word gives O(k log k) per word; counting signature is O(k).",
+    "approach": "Use the sorted string (or a 26-count signature) as the hash key and bucket words by it.",
+    "code": "function groupAnagrams(words) {\n  const map = new Map();\n  for (const w of words) {\n    const key = [...w].sort().join(\"\");\n    if (!map.has(key)) map.set(key, []);\n    map.get(key).push(w);\n  }\n  return [...map.values()];\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n · k log k)",
+    "spaceComplexity": "O(n · k)",
+    "solvedAt": "2026-10-11T19:36:04.242Z",
+    "solvedDateKey": "2026-10-11",
+    "revision": {
+      "nextReviewDate": "2026-10-12T00:00:00.000Z",
+      "lastReviewedAt": "2026-10-11T04:50:00.000Z",
+      "revisionCount": 10,
+      "memoryStrength": 17,
+      "status": "scheduled",
+      "interval": 1,
+      "lastResult": "forgot",
+      "resultStreak": 0,
+      "weakFlags": [
+        "low_memory",
+        "recent_forgot",
+        "repeated_hard"
+      ],
+      "totalRevisionSeconds": 660
+    },
+    "mistakes": [
+      {
+        "forgotWhat": "Base case / termination condition of the recursion.",
+        "gotStuck": "",
+        "mistake": "Off-by-one in the base case — infinite recursion on the edge input.",
+        "insight": "",
+        "result": "forgot",
+        "reviewedAt": "2026-08-14T07:24:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f26",
+        "createdAt": "2026-10-11T18:06:14.480Z",
+        "updatedAt": "2026-10-11T18:06:14.480Z"
+      }
+    ],
+    "createdAt": "2026-07-16T07:13:00.000Z",
+    "updatedAt": "2026-10-11T19:36:04.246Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f27",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Top K Frequent Elements",
+    "description": "Return the k most frequent numbers in an array. Must run better than full sorting.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/top-k-frequent-elements/",
+    "difficulty": "Medium",
+    "topics": [
+      "Hashing",
+      "Heap",
+      "Bucket Sort"
+    ],
+    "companies": [
+      "Meta",
+      "Google"
+    ],
+    "status": "solved",
+    "notes": "Bucket sort gives guaranteed O(n); the heap variant is the interview fallback.",
+    "approach": "Count frequencies, then bucket by frequency (index = count) and read from the highest bucket down.",
+    "code": "function topKFrequent(nums, k) {\n  const count = new Map();\n  for (const n of nums) count.set(n, (count.get(n) || 0) + 1);\n  const buckets = Array.from({ length: nums.length + 1 }, () => []);\n  for (const [n, c] of count) buckets[c].push(n);\n  const out = [];\n  for (let i = buckets.length - 1; i >= 0 && out.length < k; i--) out.push(...buckets[i]);\n  return out.slice(0, k);\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(n)",
+    "solvedAt": "2026-08-22T05:45:00.000Z",
+    "solvedDateKey": "2026-08-22",
+    "revision": {
+      "nextReviewDate": "2026-10-18T00:00:00.000Z",
+      "lastReviewedAt": "2026-10-11T09:04:00.000Z",
+      "revisionCount": 7,
+      "memoryStrength": 48,
+      "status": "scheduled",
+      "interval": 7,
+      "lastResult": "good",
+      "resultStreak": 1,
+      "weakFlags": [
+        "repeated_hard"
+      ],
+      "totalRevisionSeconds": 420
+    },
+    "mistakes": [],
+    "createdAt": "2026-08-22T05:45:00.000Z",
+    "updatedAt": "2026-10-11T09:04:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f28",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Longest Consecutive Sequence",
+    "description": "Find the length of the longest run of consecutive integers, in O(n) time.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/longest-consecutive-sequence/",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Hashing"
+    ],
+    "companies": [
+      "Amazon"
+    ],
+    "status": "solved",
+    "notes": "Only start from run beginnings — that is what keeps it O(n).",
+    "approach": "Put everything in a set; only start counting at numbers whose predecessor is absent, then walk forward.",
+    "code": "function longestConsecutive(nums) {\n  const set = new Set(nums); let best = 0;\n  for (const n of set) {\n    if (set.has(n - 1)) continue;\n    let len = 1, cur = n;\n    while (set.has(cur + 1)) { cur++; len++; }\n    best = Math.max(best, len);\n  }\n  return best;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(n)",
+    "solvedAt": "2026-10-11T04:08:00.000Z",
+    "solvedDateKey": "2026-10-11",
+    "revision": {
+      "nextReviewDate": "2026-10-11T00:00:00.000Z",
+      "lastReviewedAt": null,
+      "revisionCount": 0,
+      "memoryStrength": 50,
+      "status": "due",
+      "interval": 0,
+      "lastResult": null,
+      "resultStreak": 0,
+      "weakFlags": [],
+      "totalRevisionSeconds": 0
+    },
+    "mistakes": [],
+    "createdAt": "2026-10-11T04:08:00.000Z",
+    "updatedAt": "2026-10-11T04:08:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f29",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Subarray Sum Equals K",
+    "description": "Count contiguous subarrays whose elements sum to exactly k (negatives allowed).",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/subarray-sum-equals-k/",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Hashing",
+      "Prefix Sum"
+    ],
+    "companies": [
+      "Google"
+    ],
+    "status": "solved",
+    "notes": "prefix[0] = 1 must be seeded or subarrays starting at index 0 are missed.",
+    "approach": "Prefix sums: how many earlier prefixes equal (runningSum - k)? Store prefix frequencies in a map.",
+    "code": "function subarraySum(nums, k) {\n  const seen = new Map([[0, 1]]);\n  let sum = 0, count = 0;\n  for (const n of nums) {\n    sum += n;\n    count += seen.get(sum - k) || 0;\n    seen.set(sum, (seen.get(sum) || 0) + 1);\n  }\n  return count;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(n)",
+    "solvedAt": "2026-08-20T10:54:00.000Z",
+    "solvedDateKey": "2026-08-20",
+    "revision": {
+      "nextReviewDate": "2026-10-21T00:00:00.000Z",
+      "lastReviewedAt": "2026-10-07T13:23:00.000Z",
+      "revisionCount": 9,
+      "memoryStrength": 47,
+      "status": "scheduled",
+      "interval": 14,
+      "lastResult": "easy",
+      "resultStreak": 1,
+      "weakFlags": [
+        "repeated_hard"
+      ],
+      "totalRevisionSeconds": 540
+    },
+    "mistakes": [
+      {
+        "forgotWhat": "",
+        "gotStuck": "",
+        "mistake": "Mutated the input array while iterating, which corrupted later comparisons.",
+        "insight": "",
+        "result": "forgot",
+        "reviewedAt": "2026-09-03T04:03:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f2a",
+        "createdAt": "2026-10-11T18:06:14.480Z",
+        "updatedAt": "2026-10-11T18:06:14.480Z"
+      }
+    ],
+    "createdAt": "2026-08-20T10:54:00.000Z",
+    "updatedAt": "2026-10-07T13:23:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f2b",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Contains Duplicate II",
+    "description": "Return true if any value appears twice within a window of at most k indices.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/contains-duplicate-ii/",
+    "difficulty": "Easy",
+    "topics": [
+      "Array",
+      "Hashing"
+    ],
+    "companies": [
+      "Meta"
+    ],
+    "status": "solved",
+    "notes": "Store last-seen index, not first — otherwise the window check is wrong.",
+    "approach": "Keep a map of the last index of each value and compare distances as you sweep.",
+    "code": "function containsNearbyDuplicate(nums, k) {\n  const last = new Map();\n  for (let i = 0; i < nums.length; i++) {\n    if (last.has(nums[i]) && i - last.get(nums[i]) <= k) return true;\n    last.set(nums[i], i);\n  }\n  return false;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(k)",
+    "solvedAt": "2026-07-17T06:03:00.000Z",
+    "solvedDateKey": "2026-07-17",
+    "revision": {
+      "nextReviewDate": "2026-08-07T00:00:00.000Z",
+      "lastReviewedAt": "2026-07-31T10:10:00.000Z",
+      "revisionCount": 9,
+      "memoryStrength": 22,
+      "status": "scheduled",
+      "interval": 7,
+      "lastResult": "good",
+      "resultStreak": 1,
+      "weakFlags": [
+        "low_memory",
+        "repeated_hard"
+      ],
+      "totalRevisionSeconds": 540
+    },
+    "mistakes": [
+      {
+        "forgotWhat": "Base case / termination condition of the recursion.",
+        "gotStuck": "",
+        "mistake": "Off-by-one in the base case — infinite recursion on the edge input.",
+        "insight": "",
+        "result": "forgot",
+        "reviewedAt": "2026-07-26T12:08:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f2c",
+        "createdAt": "2026-10-11T18:06:14.480Z",
+        "updatedAt": "2026-10-11T18:06:14.480Z"
+      },
+      {
+        "forgotWhat": "The core trick of reducing the problem to a known pattern.",
+        "gotStuck": "",
+        "mistake": "Went for the brute-force nested loop first and forgot the optimisation entirely.",
+        "insight": "",
+        "result": "forgot",
+        "reviewedAt": "2026-07-28T11:10:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f2d",
+        "createdAt": "2026-10-11T18:06:14.480Z",
+        "updatedAt": "2026-10-11T18:06:14.480Z"
+      },
+      {
+        "forgotWhat": "",
+        "gotStuck": "Lost 10 minutes because I did not define what left/right represent.",
+        "mistake": "",
+        "insight": "Always write down the loop invariant before coding.",
+        "result": "forgot",
+        "reviewedAt": "2026-07-29T06:41:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f2e",
+        "createdAt": "2026-10-11T18:06:14.480Z",
+        "updatedAt": "2026-10-11T18:06:14.480Z"
+      }
+    ],
+    "createdAt": "2026-07-17T06:03:00.000Z",
+    "updatedAt": "2026-07-31T10:10:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f2f",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "3Sum",
+    "description": "Find all unique triplets whose values sum to zero, without duplicate triplets in the answer.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/3sum/",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Two Pointers"
+    ],
+    "companies": [
+      "Amazon",
+      "Meta"
+    ],
+    "status": "solved",
+    "notes": "Skip duplicates after the inner scan too — that is the usual bug.",
+    "approach": "Sort, fix one index, then two-pointer scan the rest; skip repeated values at every level to kill duplicates.",
+    "code": "function threeSum(nums) {\n  nums.sort((a, b) => a - b);\n  const res = [];\n  for (let i = 0; i < nums.length - 2; i++) {\n    if (i && nums[i] === nums[i - 1]) continue;\n    let l = i + 1, r = nums.length - 1;\n    while (l < r) {\n      const s = nums[i] + nums[l] + nums[r];\n      if (s === 0) {\n        res.push([nums[i], nums[l], nums[r]]);\n        while (l < r && nums[l] === nums[l + 1]) l++;\n        while (l < r && nums[r] === nums[r - 1]) r--;\n        l++; r--;\n      } else if (s < 0) l++;\n      else r--;\n    }\n  }\n  return res;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n^2)",
+    "spaceComplexity": "O(1)",
+    "solvedAt": "2026-07-10T08:22:00.000Z",
+    "solvedDateKey": "2026-07-10",
+    "revision": {
+      "nextReviewDate": "2026-10-11T00:00:00.000Z",
+      "lastReviewedAt": "2026-09-23T11:25:00.000Z",
+      "revisionCount": 8,
+      "memoryStrength": 73,
+      "status": "due",
+      "interval": 18,
+      "lastResult": "easy",
+      "resultStreak": 2,
+      "weakFlags": [],
+      "totalRevisionSeconds": 480
+    },
+    "mistakes": [],
+    "createdAt": "2026-07-10T08:22:00.000Z",
+    "updatedAt": "2026-09-23T11:25:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f30",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Container With Most Water",
+    "description": "Pick two vertical lines that together with the x-axis hold the maximum water.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/container-with-most-water/",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Two Pointers"
+    ],
+    "companies": [
+      "Google"
+    ],
+    "status": "solved",
+    "notes": "Always advance the shorter side — advancing the taller can never win.",
+    "approach": "Two pointers from both ends; move the shorter line inward because only a taller line can improve the area.",
+    "code": "function maxArea(h) {\n  let l = 0, r = h.length - 1, best = 0;\n  while (l < r) {\n    best = Math.max(best, Math.min(h[l], h[r]) * (r - l));\n    if (h[l] < h[r]) l++; else r--;\n  }\n  return best;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "solvedAt": "2026-09-03T07:00:00.000Z",
+    "solvedDateKey": "2026-09-03",
+    "revision": {
+      "nextReviewDate": "2026-10-16T00:00:00.000Z",
+      "lastReviewedAt": "2026-10-08T12:33:00.000Z",
+      "revisionCount": 5,
+      "memoryStrength": 49,
+      "status": "scheduled",
+      "interval": 8,
+      "lastResult": "hard",
+      "resultStreak": 0,
+      "weakFlags": [],
+      "totalRevisionSeconds": 300
+    },
+    "mistakes": [
+      {
+        "forgotWhat": "",
+        "gotStuck": "Lost 10 minutes because I did not define what left/right represent.",
+        "mistake": "",
+        "insight": "Always write down the loop invariant before coding.",
+        "result": "hard",
+        "reviewedAt": "2026-09-10T03:41:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f31",
+        "createdAt": "2026-10-11T18:06:14.480Z",
+        "updatedAt": "2026-10-11T18:06:14.480Z"
+      },
+      {
+        "forgotWhat": "",
+        "gotStuck": "",
+        "mistake": "",
+        "insight": "Draw the state transition table first; the recurrence writes itself.",
+        "result": "hard",
+        "reviewedAt": "2026-10-08T12:33:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f32",
+        "createdAt": "2026-10-11T18:06:14.480Z",
+        "updatedAt": "2026-10-11T18:06:14.480Z"
+      }
+    ],
+    "createdAt": "2026-09-03T07:00:00.000Z",
+    "updatedAt": "2026-10-08T12:33:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f33",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Valid Palindrome II",
+    "description": "Decide whether the string becomes a palindrome after deleting at most one character.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/valid-palindrome-ii/",
+    "difficulty": "Easy",
+    "topics": [
+      "String",
+      "Two Pointers"
+    ],
+    "companies": [
+      "Amazon"
+    ],
+    "status": "solved",
+    "notes": "Extract a helper isPal(l, r) so both branches reuse it.",
+    "approach": "On the first mismatch, test both deletions (left or right) with a plain palindrome check.",
+    "code": "function validPalindrome(s) {\n  const isPal = (l, r) => { while (l < r) if (s[l++] !== s[r--]) return false; return true; };\n  let l = 0, r = s.length - 1;\n  while (l < r) {\n    if (s[l] !== s[r]) return isPal(l + 1, r) || isPal(l, r - 1);\n    l++; r--;\n  }\n  return true;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "solvedAt": "2026-07-03T12:14:00.000Z",
+    "solvedDateKey": "2026-07-03",
+    "revision": {
+      "nextReviewDate": "2026-10-26T00:00:00.000Z",
+      "lastReviewedAt": "2026-10-09T05:04:00.000Z",
+      "revisionCount": 7,
+      "memoryStrength": 57,
+      "status": "scheduled",
+      "interval": 17,
+      "lastResult": "hard",
+      "resultStreak": 0,
+      "weakFlags": [],
+      "totalRevisionSeconds": 420
+    },
+    "mistakes": [
+      {
+        "forgotWhat": "The core trick of reducing the problem to a known pattern.",
+        "gotStuck": "",
+        "mistake": "Went for the brute-force nested loop first and forgot the optimisation entirely.",
+        "insight": "",
+        "result": "forgot",
+        "reviewedAt": "2026-08-21T06:34:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f34",
+        "createdAt": "2026-10-11T18:06:14.480Z",
+        "updatedAt": "2026-10-11T18:06:14.480Z"
+      }
+    ],
+    "createdAt": "2026-07-03T12:14:00.000Z",
+    "updatedAt": "2026-10-09T05:04:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f35",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Sort Colors",
+    "description": "Sort an array of 0/1/2 values in a single pass (Dutch national flag).",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/sort-colors/",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Two Pointers",
+      "Sorting"
+    ],
+    "companies": [
+      "Microsoft"
+    ],
+    "status": "solved",
+    "notes": "When you swap a 2 to high, do NOT advance mid.",
+    "approach": "Three pointers: low for 0s, mid for the scan, high for 2s — swap and reposition without revisiting.",
+    "code": "function sortColors(nums) {\n  let lo = 0, mid = 0, hi = nums.length - 1;\n  while (mid <= hi) {\n    if (nums[mid] === 0) { [nums[lo], nums[mid]] = [nums[mid], nums[lo]]; lo++; mid++; }\n    else if (nums[mid] === 2) { [nums[mid], nums[hi]] = [nums[hi], nums[mid]]; hi--; }\n    else mid++;\n  }\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "solvedAt": "2026-08-21T11:56:00.000Z",
+    "solvedDateKey": "2026-08-21",
+    "revision": {
+      "nextReviewDate": "2026-10-11T00:00:00.000Z",
+      "lastReviewedAt": "2026-10-03T06:46:00.000Z",
+      "revisionCount": 6,
+      "memoryStrength": 58,
+      "status": "due",
+      "interval": 8,
+      "lastResult": "good",
+      "resultStreak": 1,
+      "weakFlags": [],
+      "totalRevisionSeconds": 360
+    },
+    "mistakes": [
+      {
+        "forgotWhat": "",
+        "gotStuck": "",
+        "mistake": "Mutated the input array while iterating, which corrupted later comparisons.",
+        "insight": "",
+        "result": "hard",
+        "reviewedAt": "2026-08-28T06:23:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f36",
+        "createdAt": "2026-10-11T18:06:14.481Z",
+        "updatedAt": "2026-10-11T18:06:14.481Z"
+      },
+      {
+        "forgotWhat": "",
+        "gotStuck": "",
+        "mistake": "Mutated the input array while iterating, which corrupted later comparisons.",
+        "insight": "",
+        "result": "hard",
+        "reviewedAt": "2026-09-25T13:22:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f37",
+        "createdAt": "2026-10-11T18:06:14.481Z",
+        "updatedAt": "2026-10-11T18:06:14.481Z"
+      }
+    ],
+    "createdAt": "2026-08-21T11:56:00.000Z",
+    "updatedAt": "2026-10-03T06:46:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f38",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Longest Substring Without Repeating Characters",
+    "description": "Return the length of the longest substring that contains no repeated character.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+    "difficulty": "Medium",
+    "topics": [
+      "String",
+      "Sliding Window",
+      "Hashing"
+    ],
+    "companies": [
+      "Amazon",
+      "Adobe"
+    ],
+    "status": "solved",
+    "notes": "left = max(left, lastIndex + 1) — never move left backwards.",
+    "approach": "Sliding window with a map of last seen indices; when a repeat appears, jump the left edge past its previous position.",
+    "code": "function lengthOfLongestSubstring(s) {\n  const last = new Map();\n  let l = 0, best = 0;\n  for (let r = 0; r < s.length; r++) {\n    if (last.has(s[r])) l = Math.max(l, last.get(s[r]) + 1);\n    last.set(s[r], r);\n    best = Math.max(best, r - l + 1);\n  }\n  return best;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(n)",
+    "solvedAt": "2026-06-06T08:29:00.000Z",
+    "solvedDateKey": "2026-06-06",
+    "revision": {
+      "nextReviewDate": "2027-05-05T00:00:00.000Z",
+      "lastReviewedAt": "2026-10-11T05:36:00.000Z",
+      "revisionCount": 6,
+      "memoryStrength": 90,
+      "status": "mastered",
+      "interval": 206,
+      "lastResult": "easy",
+      "resultStreak": 4,
+      "weakFlags": [],
+      "totalRevisionSeconds": 420
+    },
+    "mistakes": [],
+    "createdAt": "2026-06-06T08:29:00.000Z",
+    "updatedAt": "2026-08-17T05:47:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f39",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Minimum Size Subarray Sum",
+    "description": "Find the minimal length of a contiguous subarray whose sum is at least a target (all values positive).",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/minimum-size-subarray-sum/",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Sliding Window",
+      "Binary Search"
+    ],
+    "companies": [
+      "Google"
+    ],
+    "status": "solved",
+    "notes": "Positive values are the precondition that makes shrinking valid.",
+    "approach": "Shrink window greedily: expand right until the sum qualifies, then contract from the left while it still qualifies.",
+    "code": "function minSubArrayLen(target, nums) {\n  let l = 0, sum = 0, best = Infinity;\n  for (let r = 0; r < nums.length; r++) {\n    sum += nums[r];\n    while (sum >= target) {\n      best = Math.min(best, r - l + 1);\n      sum -= nums[l++];\n    }\n  }\n  return best === Infinity ? 0 : best;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "solvedAt": "2026-08-04T07:56:00.000Z",
+    "solvedDateKey": "2026-08-04",
+    "revision": {
+      "nextReviewDate": "2026-11-12T00:00:00.000Z",
+      "lastReviewedAt": "2026-09-25T13:19:00.000Z",
+      "revisionCount": 5,
+      "memoryStrength": 75,
+      "status": "scheduled",
+      "interval": 48,
+      "lastResult": "good",
+      "resultStreak": 3,
+      "weakFlags": [],
+      "totalRevisionSeconds": 300
+    },
+    "mistakes": [],
+    "createdAt": "2026-08-04T07:56:00.000Z",
+    "updatedAt": "2026-09-25T13:19:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f3a",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Permutation in String",
+    "description": "Check whether some anagram of the first string appears as a substring of the second.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/permutation-in-string/",
+    "difficulty": "Medium",
+    "topics": [
+      "String",
+      "Sliding Window",
+      "Hashing"
+    ],
+    "companies": [
+      "Oracle"
+    ],
+    "status": "solved",
+    "notes": "Track \"formed\" characters instead of comparing whole arrays.",
+    "approach": "Fixed-size window with 26 counters; compare only the matching count so the check stays O(1) per step.",
+    "code": "function checkInclusion(a, b) {\n  if (a.length > b.length) return false;\n  const ca = Array(26).fill(0), cw = Array(26).fill(0);\n  const idx = (c) => c.charCodeAt(0) - 97;\n  for (let i = 0; i < a.length; i++) { ca[idx(a[i])]++; cw[idx(b[i])]++; }\n  let matches = 0;\n  for (let i = 0; i < 26; i++) if (ca[i] === cw[i]) matches++;\n  for (let i = 0; i + a.length < b.length; i++) {\n    if (matches === 26) return true;\n    const out = idx(b[i]), inn = idx(b[i + a.length]);\n    if (cw[out] === ca[out]) matches--;\n    cw[out]++;\n    if (cw[inn] === ca[inn]) matches++;\n    cw[inn]--;\n  }\n  return matches === 26;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "solvedAt": "2026-07-28T04:38:00.000Z",
+    "solvedDateKey": "2026-07-28",
+    "revision": {
+      "nextReviewDate": "2026-12-09T00:00:00.000Z",
+      "lastReviewedAt": "2026-10-02T12:02:00.000Z",
+      "revisionCount": 5,
+      "memoryStrength": 79,
+      "status": "scheduled",
+      "interval": 68,
+      "lastResult": "good",
+      "resultStreak": 3,
+      "weakFlags": [],
+      "totalRevisionSeconds": 300
+    },
+    "mistakes": [],
+    "createdAt": "2026-07-28T04:38:00.000Z",
+    "updatedAt": "2026-10-02T12:02:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f3b",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Binary Search",
+    "description": "Search a target in a sorted array in logarithmic time; return its index or -1.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/binary-search/",
+    "difficulty": "Easy",
+    "topics": [
+      "Binary Search",
+      "Array"
+    ],
+    "companies": [
+      "Everywhere"
+    ],
+    "status": "solved",
+    "notes": "Define what lo/hi mean BEFORE writing the loop — always maintain the search invariant.",
+    "approach": "Maintain [lo, hi] inclusive; mid = lo + floor((hi - lo) / 2) and shrink whichever side cannot contain the target.",
+    "code": "function search(nums, target) {\n  let lo = 0, hi = nums.length - 1;\n  while (lo <= hi) {\n    const mid = lo + ((hi - lo) >> 1);\n    if (nums[mid] === target) return mid;\n    if (nums[mid] < target) lo = mid + 1;\n    else hi = mid - 1;\n  }\n  return -1;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(log n)",
+    "spaceComplexity": "O(1)",
+    "solvedAt": "2026-08-14T10:46:00.000Z",
+    "solvedDateKey": "2026-08-14",
+    "revision": {
+      "nextReviewDate": "2026-10-11T00:00:00.000Z",
+      "lastReviewedAt": "2026-09-04T07:57:00.000Z",
+      "revisionCount": 9,
+      "memoryStrength": 16,
+      "status": "due",
+      "interval": 37,
+      "lastResult": "forgot",
+      "resultStreak": 0,
+      "weakFlags": [
+        "low_memory",
+        "recent_forgot",
+        "repeated_hard"
+      ],
+      "totalRevisionSeconds": 540
+    },
+    "mistakes": [
+      {
+        "forgotWhat": "",
+        "gotStuck": "Lost 10 minutes because I did not define what left/right represent.",
+        "mistake": "",
+        "insight": "Always write down the loop invariant before coding.",
+        "result": "hard",
+        "reviewedAt": "2026-08-14T06:35:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f3c",
+        "createdAt": "2026-10-11T18:06:14.481Z",
+        "updatedAt": "2026-10-11T18:06:14.481Z"
+      },
+      {
+        "forgotWhat": "",
+        "gotStuck": "",
+        "mistake": "Mutated the input array while iterating, which corrupted later comparisons.",
+        "insight": "",
+        "result": "forgot",
+        "reviewedAt": "2026-08-16T08:19:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f3d",
+        "createdAt": "2026-10-11T18:06:14.481Z",
+        "updatedAt": "2026-10-11T18:06:14.481Z"
+      },
+      {
+        "forgotWhat": "",
+        "gotStuck": "",
+        "mistake": "",
+        "insight": "Draw the state transition table first; the recurrence writes itself.",
+        "result": "forgot",
+        "reviewedAt": "2026-08-26T10:26:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f3e",
+        "createdAt": "2026-10-11T18:06:14.481Z",
+        "updatedAt": "2026-10-11T18:06:14.481Z"
+      }
+    ],
+    "createdAt": "2026-08-14T10:46:00.000Z",
+    "updatedAt": "2026-09-04T07:57:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f3f",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Search in Rotated Sorted Array",
+    "description": "A sorted array was rotated at an unknown point; search a target in logarithmic time.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+    "difficulty": "Medium",
+    "topics": [
+      "Binary Search",
+      "Array"
+    ],
+    "companies": [
+      "LinkedIn"
+    ],
+    "status": "solved",
+    "notes": "Duplicates are excluded here — otherwise the sorted-side test degenerates.",
+    "approach": "At each step decide which half is properly sorted, then check whether the target lies inside it.",
+    "code": "function search(nums, t) {\n  let lo = 0, hi = nums.length - 1;\n  while (lo <= hi) {\n    const mid = lo + ((hi - lo) >> 1);\n    if (nums[mid] === t) return mid;\n    if (nums[lo] <= nums[mid]) {\n      if (t >= nums[lo] && t < nums[mid]) hi = mid - 1; else lo = mid + 1;\n    } else {\n      if (t > nums[mid] && t <= nums[hi]) lo = mid + 1; else hi = mid - 1;\n    }\n  }\n  return -1;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(log n)",
+    "spaceComplexity": "O(1)",
+    "solvedAt": "2026-08-03T05:23:00.000Z",
+    "solvedDateKey": "2026-08-03",
+    "revision": {
+      "nextReviewDate": "2026-11-09T00:00:00.000Z",
+      "lastReviewedAt": "2026-09-14T10:31:00.000Z",
+      "revisionCount": 3,
+      "memoryStrength": 78,
+      "status": "scheduled",
+      "interval": 56,
+      "lastResult": "good",
+      "resultStreak": 3,
+      "weakFlags": [],
+      "totalRevisionSeconds": 180
+    },
+    "mistakes": [],
+    "createdAt": "2026-08-03T05:23:00.000Z",
+    "updatedAt": "2026-09-14T10:31:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f40",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Find Peak Element",
+    "description": "Return the index of any element that is strictly greater than both neighbours (array is not sorted).",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/find-peak-element/",
+    "difficulty": "Medium",
+    "topics": [
+      "Binary Search",
+      "Array"
+    ],
+    "companies": [
+      "Amazon"
+    ],
+    "status": "solved",
+    "notes": "You are searching a predicate, not a value — that is allowed even without sorting.",
+    "approach": "Binary search on the slope: if nums[mid] < nums[mid+1] a peak exists to the right, otherwise to the left (or at mid).",
+    "code": "function findPeakElement(nums) {\n  let lo = 0, hi = nums.length - 1;\n  while (lo < hi) {\n    const mid = lo + ((hi - lo) >> 1);\n    if (nums[mid] < nums[mid + 1]) lo = mid + 1;\n    else hi = mid;\n  }\n  return lo;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(log n)",
+    "spaceComplexity": "O(1)",
+    "solvedAt": "2026-08-06T04:51:00.000Z",
+    "solvedDateKey": "2026-08-06",
+    "revision": {
+      "nextReviewDate": "2026-11-30T00:00:00.000Z",
+      "lastReviewedAt": "2026-09-24T12:43:00.000Z",
+      "revisionCount": 4,
+      "memoryStrength": 85,
+      "status": "mastered",
+      "interval": 67,
+      "lastResult": "easy",
+      "resultStreak": 4,
+      "weakFlags": [],
+      "totalRevisionSeconds": 240
+    },
+    "mistakes": [],
+    "createdAt": "2026-08-06T04:51:00.000Z",
+    "updatedAt": "2026-09-24T12:43:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f41",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Median of Two Sorted Arrays",
+    "description": "Find the median of two sorted arrays in logarithmic combined time.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/median-of-two-sorted-arrays/",
+    "difficulty": "Hard",
+    "topics": [
+      "Binary Search",
+      "Array",
+      "Divide and Conquer"
+    ],
+    "companies": [
+      "Google",
+      "Apple"
+    ],
+    "status": "solved",
+    "notes": "Always binary search the SMALLER array — that is the invariant that gives O(log(m+n)).",
+    "approach": "Binary search the partition cut on the smaller array so the left halves of both equal the right halves.",
+    "code": "function findMedianSortedArrays(a, b) {\n  if (a.length > b.length) return findMedianSortedArrays(b, a);\n  const m = a.length, n = b.length;\n  let lo = 0, hi = m;\n  const half = Math.floor((m + n + 1) / 2);\n  while (lo <= hi) {\n    const i = Math.floor((lo + hi) / 2), j = half - i;\n    const aL = i ? a[i - 1] : -Infinity, aR = i < m ? a[i] : Infinity;\n    const bL = j ? b[j - 1] : -Infinity, bR = j < n ? b[j] : Infinity;\n    if (aL <= bR && bL <= aR) {\n      return (m + n) % 2 ? Math.max(aL, bL) : (Math.max(aL, bL) + Math.min(aR, bR)) / 2;\n    }\n    if (aL > bR) hi = i - 1; else lo = i + 1;\n  }\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(log(min(m, n)))",
+    "spaceComplexity": "O(1)",
+    "solvedAt": "2026-09-08T09:23:00.000Z",
+    "solvedDateKey": "2026-09-08",
+    "revision": {
+      "nextReviewDate": "2026-10-11T00:00:00.000Z",
+      "lastReviewedAt": "2026-10-08T04:40:00.000Z",
+      "revisionCount": 5,
+      "memoryStrength": 58,
+      "status": "due",
+      "interval": 4,
+      "lastResult": "good",
+      "resultStreak": 2,
+      "weakFlags": [],
+      "totalRevisionSeconds": 300
+    },
+    "mistakes": [
+      {
+        "forgotWhat": "Base case / termination condition of the recursion.",
+        "gotStuck": "",
+        "mistake": "Off-by-one in the base case — infinite recursion on the edge input.",
+        "insight": "",
+        "result": "hard",
+        "reviewedAt": "2026-09-08T09:33:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f42",
+        "createdAt": "2026-10-11T18:06:14.481Z",
+        "updatedAt": "2026-10-11T18:06:14.481Z"
+      }
+    ],
+    "createdAt": "2026-09-08T09:23:00.000Z",
+    "updatedAt": "2026-10-08T04:40:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f43",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Reverse Linked List",
+    "description": "Reverse a singly linked list iteratively and return the new head.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/reverse-linked-list/",
+    "difficulty": "Easy",
+    "topics": [
+      "Linked List"
+    ],
+    "companies": [
+      "Microsoft"
+    ],
+    "status": "solved",
+    "notes": "Save next BEFORE flipping the pointer, or you lose the rest of the list.",
+    "approach": "Three pointers: prev, cur, next — retarget cur.next to prev and advance both.",
+    "code": "function reverseList(head) {\n  let prev = null, cur = head;\n  while (cur) {\n    const next = cur.next;\n    cur.next = prev;\n    prev = cur;\n    cur = next;\n  }\n  return prev;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "solvedAt": "2026-07-03T11:18:00.000Z",
+    "solvedDateKey": "2026-07-03",
+    "revision": {
+      "nextReviewDate": "2026-11-15T00:00:00.000Z",
+      "lastReviewedAt": "2026-08-25T05:22:00.000Z",
+      "revisionCount": 4,
+      "memoryStrength": 80,
+      "status": "scheduled",
+      "interval": 82,
+      "lastResult": "easy",
+      "resultStreak": 3,
+      "weakFlags": [],
+      "totalRevisionSeconds": 240
+    },
+    "mistakes": [
+      {
+        "forgotWhat": "That a monotonic deque gives the sliding-window extremum in O(n).",
+        "gotStuck": "",
+        "mistake": "",
+        "insight": "Whenever a window needs min/max, think monotonic deque first.",
+        "result": "hard",
+        "reviewedAt": "2026-07-03T03:32:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f44",
+        "createdAt": "2026-10-11T18:06:14.481Z",
+        "updatedAt": "2026-10-11T18:06:14.481Z"
+      }
+    ],
+    "createdAt": "2026-07-03T11:18:00.000Z",
+    "updatedAt": "2026-08-25T05:22:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f45",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Linked List Cycle",
+    "description": "Detect whether a linked list contains a cycle, in constant extra space.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/linked-list-cycle/",
+    "difficulty": "Easy",
+    "topics": [
+      "Linked List",
+      "Two Pointers"
+    ],
+    "companies": [
+      "Yahoo"
+    ],
+    "status": "solved",
+    "notes": "Check fast and fast.next each iteration to avoid null dereference.",
+    "approach": "Floyd's tortoise and hare: slow moves 1 step, fast moves 2 — they meet iff a cycle exists.",
+    "code": "function hasCycle(head) {\n  let slow = head, fast = head;\n  while (fast && fast.next) {\n    slow = slow.next;\n    fast = fast.next.next;\n    if (slow === fast) return true;\n  }\n  return false;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "solvedAt": "2026-08-08T07:38:00.000Z",
+    "solvedDateKey": "2026-08-08",
+    "revision": {
+      "nextReviewDate": "2026-12-26T00:00:00.000Z",
+      "lastReviewedAt": "2026-10-05T08:57:00.000Z",
+      "revisionCount": 4,
+      "memoryStrength": 90,
+      "status": "mastered",
+      "interval": 82,
+      "lastResult": "easy",
+      "resultStreak": 4,
+      "weakFlags": [],
+      "totalRevisionSeconds": 240
+    },
+    "mistakes": [],
+    "createdAt": "2026-08-08T07:38:00.000Z",
+    "updatedAt": "2026-10-05T08:57:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f46",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Merge Two Sorted Lists",
+    "description": "Merge two sorted linked lists into one sorted list and return its head.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/merge-two-sorted-lists/",
+    "difficulty": "Easy",
+    "topics": [
+      "Linked List",
+      "Recursion"
+    ],
+    "companies": [
+      "Adobe"
+    ],
+    "status": "solved",
+    "notes": "The dummy node removes all head-edge-case branching.",
+    "approach": "Dummy head + advance whichever pointer has the smaller current node; append the remainder at the end.",
+    "code": "function mergeTwoLists(a, b) {\n  const dummy = { next: null };\n  let tail = dummy;\n  while (a && b) {\n    if (a.val <= b.val) { tail.next = a; a = a.next; }\n    else { tail.next = b; b = b.next; }\n    tail = tail.next;\n  }\n  tail.next = a || b;\n  return dummy.next;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(m + n)",
+    "spaceComplexity": "O(1)",
+    "solvedAt": "2026-06-01T11:29:00.000Z",
+    "solvedDateKey": "2026-06-01",
+    "revision": {
+      "nextReviewDate": "2027-04-13T00:00:00.000Z",
+      "lastReviewedAt": "2026-10-11T07:20:00.000Z",
+      "revisionCount": 5,
+      "memoryStrength": 87,
+      "status": "mastered",
+      "interval": 184,
+      "lastResult": "good",
+      "resultStreak": 5,
+      "weakFlags": [],
+      "totalRevisionSeconds": 360
+    },
+    "mistakes": [],
+    "createdAt": "2026-06-01T11:29:00.000Z",
+    "updatedAt": "2026-08-16T11:04:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f47",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Valid Parentheses",
+    "description": "Check whether a string of brackets is correctly matched and nested.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/valid-parentheses/",
+    "difficulty": "Easy",
+    "topics": [
+      "Stack",
+      "String"
+    ],
+    "companies": [
+      "Meta"
+    ],
+    "status": "solved",
+    "notes": "Empty-stack pop is invalid — check before popping.",
+    "approach": "Push opening brackets; on a closer, pop and verify it matches. Stack must be empty at the end.",
+    "code": "function isValid(s) {\n  const pairs = { \")\": \"(\", \"]\": \"[\", \"}\": \"{\" };\n  const stack = [];\n  for (const c of s) {\n    if (!(c in pairs)) stack.push(c);\n    else if (stack.pop() !== pairs[c]) return false;\n  }\n  return stack.length === 0;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(n)",
+    "solvedAt": "2026-07-16T05:24:00.000Z",
+    "solvedDateKey": "2026-07-16",
+    "revision": {
+      "nextReviewDate": "2026-10-27T00:00:00.000Z",
+      "lastReviewedAt": "2026-10-09T08:13:00.000Z",
+      "revisionCount": 8,
+      "memoryStrength": 60,
+      "status": "scheduled",
+      "interval": 18,
+      "lastResult": "good",
+      "resultStreak": 1,
+      "weakFlags": [],
+      "totalRevisionSeconds": 480
+    },
+    "mistakes": [
+      {
+        "forgotWhat": "",
+        "gotStuck": "Lost 10 minutes because I did not define what left/right represent.",
+        "mistake": "",
+        "insight": "Always write down the loop invariant before coding.",
+        "result": "forgot",
+        "reviewedAt": "2026-08-27T07:09:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f48",
+        "createdAt": "2026-10-11T18:06:14.482Z",
+        "updatedAt": "2026-10-11T18:06:14.482Z"
+      }
+    ],
+    "createdAt": "2026-07-16T05:24:00.000Z",
+    "updatedAt": "2026-10-09T08:13:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f49",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Min Stack",
+    "description": "Implement a stack that also returns the current minimum in constant time.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/min-stack/",
+    "difficulty": "Medium",
+    "topics": [
+      "Stack",
+      "Design"
+    ],
+    "companies": [
+      "Apple"
+    ],
+    "status": "solved",
+    "notes": "Use <= when pushing so duplicate minimums pop correctly.",
+    "approach": "Keep a parallel stack of minima; push the new min whenever it is <= current top.",
+    "code": "class MinStack {\n  constructor() { this.s = []; this.mins = []; }\n  push(v) {\n    this.s.push(v);\n    this.mins.push(this.mins.length ? Math.min(v, this.mins.at(-1)) : v);\n  }\n  pop() { this.s.pop(); this.mins.pop(); }\n  top() { return this.s.at(-1); }\n  getMin() { return this.mins.at(-1); }\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(1)",
+    "spaceComplexity": "O(n)",
+    "solvedAt": "2026-06-02T10:39:00.000Z",
+    "solvedDateKey": "2026-06-02",
+    "revision": {
+      "nextReviewDate": "2026-10-11T00:00:00.000Z",
+      "lastReviewedAt": "2026-09-15T09:12:00.000Z",
+      "revisionCount": 5,
+      "memoryStrength": 84,
+      "status": "due",
+      "interval": 26,
+      "lastResult": "good",
+      "resultStreak": 5,
+      "weakFlags": [],
+      "totalRevisionSeconds": 300
+    },
+    "mistakes": [],
+    "createdAt": "2026-06-02T10:39:00.000Z",
+    "updatedAt": "2026-09-15T09:12:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f4a",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Daily Temperatures",
+    "description": "For each day, how many days you must wait until a warmer temperature (0 if never).",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/daily-temperatures/",
+    "difficulty": "Medium",
+    "topics": [
+      "Stack",
+      "Array",
+      "Monotonic Stack"
+    ],
+    "companies": [
+      "Amazon"
+    ],
+    "status": "solved",
+    "notes": "Store INDICES in the stack, not values — you need the distance.",
+    "approach": "Monotonic decreasing stack of indices; a warmer day resolves every colder index it pops.",
+    "code": "function dailyTemperatures(t) {\n  const res = Array(t.length).fill(0);\n  const stack = [];\n  for (let i = 0; i < t.length; i++) {\n    while (stack.length && t[i] > t[stack.at(-1)]) {\n      const j = stack.pop();\n      res[j] = i - j;\n    }\n    stack.push(i);\n  }\n  return res;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(n)",
+    "solvedAt": "2026-08-04T09:24:00.000Z",
+    "solvedDateKey": "2026-08-04",
+    "revision": {
+      "nextReviewDate": "2026-11-10T00:00:00.000Z",
+      "lastReviewedAt": "2026-09-15T07:55:00.000Z",
+      "revisionCount": 3,
+      "memoryStrength": 78,
+      "status": "scheduled",
+      "interval": 56,
+      "lastResult": "good",
+      "resultStreak": 3,
+      "weakFlags": [],
+      "totalRevisionSeconds": 180
+    },
+    "mistakes": [],
+    "createdAt": "2026-08-04T09:24:00.000Z",
+    "updatedAt": "2026-09-15T07:55:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f4b",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Implement Queue using Stacks",
+    "description": "Implement FIFO push/pop/peek using only two LIFO stacks; amortised O(1) push.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/implement-queue-using-stacks/",
+    "difficulty": "Easy",
+    "topics": [
+      "Queue",
+      "Stack",
+      "Design"
+    ],
+    "companies": [
+      "Google"
+    ],
+    "status": "solved",
+    "notes": "The amortised argument: each element is flipped at most once.",
+    "approach": "In-stack for pushes; flip everything to the out-stack only when it is empty.",
+    "code": "class MyQueue {\n  constructor() { this.in = []; this.out = []; }\n  push(x) { this.in.push(x); }\n  pop() { this.#shift(); return this.out.pop(); }\n  peek() { this.#shift(); return this.out.at(-1); }\n  #shift() { while (!this.out.length) this.out.push(this.in.pop()); }\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(1) amortised",
+    "spaceComplexity": "O(n)",
+    "solvedAt": "2026-06-08T08:36:00.000Z",
+    "solvedDateKey": "2026-06-08",
+    "revision": {
+      "nextReviewDate": "2026-11-07T00:00:00.000Z",
+      "lastReviewedAt": "2026-10-10T10:33:00.000Z",
+      "revisionCount": 6,
+      "memoryStrength": 72,
+      "status": "scheduled",
+      "interval": 28,
+      "lastResult": "good",
+      "resultStreak": 2,
+      "weakFlags": [],
+      "totalRevisionSeconds": 360
+    },
+    "mistakes": [
+      {
+        "forgotWhat": "Base case / termination condition of the recursion.",
+        "gotStuck": "",
+        "mistake": "Off-by-one in the base case — infinite recursion on the edge input.",
+        "insight": "",
+        "result": "forgot",
+        "reviewedAt": "2026-09-25T12:18:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f4c",
+        "createdAt": "2026-10-11T18:06:14.482Z",
+        "updatedAt": "2026-10-11T18:06:14.482Z"
+      }
+    ],
+    "createdAt": "2026-06-08T08:36:00.000Z",
+    "updatedAt": "2026-10-10T10:33:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f4d",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Number of Recent Calls",
+    "description": "Count how many calls happened in the last 3000 ms, given monotonically increasing timestamps.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/number-of-recent-calls/",
+    "difficulty": "Easy",
+    "topics": [
+      "Queue",
+      "Design"
+    ],
+    "companies": [
+      "Uber"
+    ],
+    "status": "solved",
+    "notes": "A plain sliding window over a monotonic sequence.",
+    "approach": "Queue of timestamps; drop everything older than t - 3000 on each insert.",
+    "code": "class RecentCounter {\n  constructor() { this.q = []; }\n  ping(t) {\n    this.q.push(t);\n    while (this.q[0] < t - 3000) this.q.shift();\n    return this.q.length;\n  }\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n) total",
+    "spaceComplexity": "O(n)",
+    "solvedAt": "2026-07-01T09:38:00.000Z",
+    "solvedDateKey": "2026-07-01",
+    "revision": {
+      "nextReviewDate": "2026-10-11T00:00:00.000Z",
+      "lastReviewedAt": "2026-09-29T12:17:00.000Z",
+      "revisionCount": 5,
+      "memoryStrength": 62,
+      "status": "due",
+      "interval": 12,
+      "lastResult": "easy",
+      "resultStreak": 1,
+      "weakFlags": [],
+      "totalRevisionSeconds": 300
+    },
+    "mistakes": [],
+    "createdAt": "2026-07-01T09:38:00.000Z",
+    "updatedAt": "2026-09-29T12:17:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f4e",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Kth Largest Element in an Array",
+    "description": "Find the k-th largest value in an unsorted array without fully sorting it.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/kth-largest-element-in-an-array/",
+    "difficulty": "Medium",
+    "topics": [
+      "Heap",
+      "Array",
+      "Quickselect"
+    ],
+    "companies": [
+      "Meta"
+    ],
+    "status": "solved",
+    "notes": "A min-heap of size k holds the K largest — think inverted. Quickselect is average O(n).",
+    "approach": "Keep a size-k min-heap of the largest elements seen: push, then pop when over capacity.",
+    "code": "function findKthLargest(nums, k) {\n  const heap = [];\n  const push = (v) => {\n    heap.push(v);\n    let i = heap.length - 1;\n    while (i > 0) {\n      const p = (i - 1) >> 1;\n      if (heap[p] <= heap[i]) break;\n      [heap[p], heap[i]] = [heap[i], heap[p]];\n      i = p;\n    }\n  };\n  const pop = () => {\n    const top = heap[0];\n    heap[0] = heap.at(-1); heap.pop();\n    let i = 0;\n    while (true) {\n      let s = i; const l = 2 * i + 1, r = 2 * i + 2;\n      if (l < heap.length && heap[l] < heap[s]) s = l;\n      if (r < heap.length && heap[r] < heap[s]) s = r;\n      if (s === i) break;\n      [heap[s], heap[i]] = [heap[i], heap[s]]; i = s;\n    }\n    return top;\n  };\n  for (const n of nums) { push(n); if (heap.length > k) pop(); }\n  return heap[0];\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n log k)",
+    "spaceComplexity": "O(k)",
+    "solvedAt": "2026-08-18T06:35:00.000Z",
+    "solvedDateKey": "2026-08-18",
+    "revision": {
+      "nextReviewDate": "2026-09-12T00:00:00.000Z",
+      "lastReviewedAt": "2026-09-11T07:30:00.000Z",
+      "revisionCount": 9,
+      "memoryStrength": 23,
+      "status": "scheduled",
+      "interval": 1,
+      "lastResult": "forgot",
+      "resultStreak": 0,
+      "weakFlags": [
+        "low_memory",
+        "recent_forgot",
+        "repeated_hard"
+      ],
+      "totalRevisionSeconds": 540
+    },
+    "mistakes": [
+      {
+        "forgotWhat": "",
+        "gotStuck": "",
+        "mistake": "",
+        "insight": "Draw the state transition table first; the recurrence writes itself.",
+        "result": "forgot",
+        "reviewedAt": "2026-08-30T07:59:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f4f",
+        "createdAt": "2026-10-11T18:06:14.482Z",
+        "updatedAt": "2026-10-11T18:06:14.482Z"
+      },
+      {
+        "forgotWhat": "That a monotonic deque gives the sliding-window extremum in O(n).",
+        "gotStuck": "",
+        "mistake": "",
+        "insight": "Whenever a window needs min/max, think monotonic deque first.",
+        "result": "hard",
+        "reviewedAt": "2026-09-07T12:54:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f50",
+        "createdAt": "2026-10-11T18:06:14.482Z",
+        "updatedAt": "2026-10-11T18:06:14.482Z"
+      },
+      {
+        "forgotWhat": "",
+        "gotStuck": "",
+        "mistake": "",
+        "insight": "Draw the state transition table first; the recurrence writes itself.",
+        "result": "forgot",
+        "reviewedAt": "2026-09-11T07:30:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f51",
+        "createdAt": "2026-10-11T18:06:14.482Z",
+        "updatedAt": "2026-10-11T18:06:14.482Z"
+      }
+    ],
+    "createdAt": "2026-08-18T06:35:00.000Z",
+    "updatedAt": "2026-09-11T07:30:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f52",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Last Stone Weight",
+    "description": "Repeatedly smash the two heaviest stones; return the lightest remaining stone (0 if none).",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/last-stone-weight/",
+    "difficulty": "Easy",
+    "topics": [
+      "Heap",
+      "Array"
+    ],
+    "companies": [
+      "Bloomberg"
+    ],
+    "status": "solved",
+    "notes": "JS has no built-in heap — implement sift-up/sift-down or sort each round in an interview.",
+    "approach": "Max-heap: pop the two largest, push back their difference if positive.",
+    "code": "function lastStoneWeight(stones) {\n  const heap = [...stones].sort((a, b) => b - a);\n  while (heap.length > 1) {\n    const a = heap.shift(), b = heap.shift();\n    if (a > b) heap.push(a - b);\n    heap.sort((x, y) => y - x);\n  }\n  return heap[0] || 0;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n^2 log n)",
+    "spaceComplexity": "O(n)",
+    "solvedAt": "2026-07-03T11:49:00.000Z",
+    "solvedDateKey": "2026-07-03",
+    "revision": {
+      "nextReviewDate": "2026-11-17T00:00:00.000Z",
+      "lastReviewedAt": "2026-08-27T06:28:00.000Z",
+      "revisionCount": 4,
+      "memoryStrength": 91,
+      "status": "mastered",
+      "interval": 82,
+      "lastResult": "easy",
+      "resultStreak": 4,
+      "weakFlags": [],
+      "totalRevisionSeconds": 240
+    },
+    "mistakes": [],
+    "createdAt": "2026-07-03T11:49:00.000Z",
+    "updatedAt": "2026-08-27T06:28:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f53",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Pow(x, n)",
+    "description": "Compute x raised to the power n efficiently, handling negative exponents.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/powx-n/",
+    "difficulty": "Medium",
+    "topics": [
+      "Recursion",
+      "Math",
+      "Binary Exponentiation"
+    ],
+    "companies": [
+      "Twitter"
+    ],
+    "status": "solved",
+    "notes": "-2^31 overflows when negated in some languages — use a long/BigInt intermediate.",
+    "approach": "Binary exponentiation: square the base while halving the exponent; flip to 1/x for negatives.",
+    "code": "function myPow(x, n) {\n  if (n === 0) return 1;\n  if (n < 0) return 1 / myPow(x, -n);\n  const half = myPow(x, Math.floor(n / 2));\n  return n % 2 ? half * half * x : half * half;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(log n)",
+    "spaceComplexity": "O(log n)",
+    "solvedAt": "2026-10-11T19:36:04.268Z",
+    "solvedDateKey": "2026-10-11",
+    "revision": {
+      "nextReviewDate": "2026-11-01T00:00:00.000Z",
+      "lastReviewedAt": "2026-10-11T19:44:00.462Z",
+      "revisionCount": 10,
+      "memoryStrength": 53,
+      "status": "scheduled",
+      "interval": 20,
+      "lastResult": "good",
+      "resultStreak": 3,
+      "weakFlags": [],
+      "totalRevisionSeconds": 743
+    },
+    "mistakes": [
+      {
+        "forgotWhat": "That a monotonic deque gives the sliding-window extremum in O(n).",
+        "gotStuck": "",
+        "mistake": "",
+        "insight": "Whenever a window needs min/max, think monotonic deque first.",
+        "result": "forgot",
+        "reviewedAt": "2026-09-04T05:21:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f54",
+        "createdAt": "2026-10-11T18:06:14.482Z",
+        "updatedAt": "2026-10-11T18:06:14.482Z"
+      },
+      {
+        "forgotWhat": "",
+        "gotStuck": "",
+        "mistake": "",
+        "insight": "Draw the state transition table first; the recurrence writes itself.",
+        "result": "forgot",
+        "reviewedAt": "2026-09-12T08:04:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f55",
+        "createdAt": "2026-10-11T18:06:14.482Z",
+        "updatedAt": "2026-10-11T18:06:14.482Z"
+      },
+      {
+        "forgotWhat": "",
+        "gotStuck": "",
+        "mistake": "Mutated the input array while iterating, which corrupted later comparisons.",
+        "insight": "",
+        "result": "forgot",
+        "reviewedAt": "2026-09-13T04:23:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f56",
+        "createdAt": "2026-10-11T18:06:14.482Z",
+        "updatedAt": "2026-10-11T18:06:14.482Z"
+      }
+    ],
+    "createdAt": "2026-08-27T05:59:00.000Z",
+    "updatedAt": "2026-10-11T19:44:00.521Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f57",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Flood Fill",
+    "description": "Recolour the connected region containing the start pixel with a new colour.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/flood-fill/",
+    "difficulty": "Easy",
+    "topics": [
+      "Recursion",
+      "Graph",
+      "DFS"
+    ],
+    "companies": [
+      "Microsoft"
+    ],
+    "status": "solved",
+    "notes": "Early-return when newColor equals the original colour, or you recurse forever.",
+    "approach": "DFS from the start cell; only recurse into neighbours that still hold the original colour.",
+    "code": "function floodFill(img, sr, sc, color) {\n  const orig = img[sr][sc];\n  if (orig === color) return img;\n  const dfs = (r, c) => {\n    if (r < 0 || c < 0 || r >= img.length || c >= img[0].length || img[r][c] !== orig) return;\n    img[r][c] = color;\n    dfs(r + 1, c); dfs(r - 1, c); dfs(r, c + 1); dfs(r, c - 1);\n  };\n  dfs(sr, sc);\n  return img;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(m·n)",
+    "spaceComplexity": "O(m·n)",
+    "solvedAt": "2026-07-28T04:34:00.000Z",
+    "solvedDateKey": "2026-07-28",
+    "revision": {
+      "nextReviewDate": "2027-03-04T00:00:00.000Z",
+      "lastReviewedAt": "2026-10-11T02:50:00.000Z",
+      "revisionCount": 4,
+      "memoryStrength": 88,
+      "status": "mastered",
+      "interval": 144,
+      "lastResult": "good",
+      "resultStreak": 4,
+      "weakFlags": [],
+      "totalRevisionSeconds": 300
+    },
+    "mistakes": [],
+    "createdAt": "2026-07-28T04:34:00.000Z",
+    "updatedAt": "2026-09-06T10:10:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f58",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Subsets",
+    "description": "Return every possible subset of a set of distinct integers.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/subsets/",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Backtracking",
+      "Bit Manipulation"
+    ],
+    "companies": [
+      "Meta"
+    ],
+    "status": "solved",
+    "notes": "The backtrack pops after recursion — forget it and the path corrupts.",
+    "approach": "At each index decide include-or-skip; push a copy of the current path when you reach the end.",
+    "code": "function subsets(nums) {\n  const res = [], path = [];\n  const dfs = (i) => {\n    if (i === nums.length) { res.push([...path]); return; }\n    dfs(i + 1);\n    path.push(nums[i]);\n    dfs(i + 1);\n    path.pop();\n  };\n  dfs(0);\n  return res;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n·2^n)",
+    "spaceComplexity": "O(n)",
+    "solvedAt": "2026-10-11T06:10:00.000Z",
+    "solvedDateKey": "2026-10-11",
+    "revision": {
+      "nextReviewDate": "2026-10-11T00:00:00.000Z",
+      "lastReviewedAt": null,
+      "revisionCount": 0,
+      "memoryStrength": 50,
+      "status": "due",
+      "interval": 0,
+      "lastResult": null,
+      "resultStreak": 0,
+      "weakFlags": [],
+      "totalRevisionSeconds": 0
+    },
+    "mistakes": [],
+    "createdAt": "2026-10-11T06:10:00.000Z",
+    "updatedAt": "2026-10-11T06:10:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f59",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Permutations",
+    "description": "Return all orderings of a list of distinct integers.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/permutations/",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Backtracking"
+    ],
+    "companies": [
+      "Amazon"
+    ],
+    "status": "solved",
+    "notes": "Swap-based backtracking avoids a used[] array.",
+    "approach": "Build permutations slot by slot, swapping the current index with each later candidate and undoing the swap.",
+    "code": "function permute(nums) {\n  const res = [];\n  const dfs = (i) => {\n    if (i === nums.length) { res.push([...nums]); return; }\n    for (let j = i; j < nums.length; j++) {\n      [nums[i], nums[j]] = [nums[j], nums[i]];\n      dfs(i + 1);\n      [nums[i], nums[j]] = [nums[j], nums[i]];\n    }\n  };\n  dfs(0);\n  return res;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n·n!)",
+    "spaceComplexity": "O(n)",
+    "solvedAt": "2026-10-11T19:36:04.225Z",
+    "solvedDateKey": "2026-10-11",
+    "revision": {
+      "nextReviewDate": "2026-09-20T00:00:00.000Z",
+      "lastReviewedAt": "2026-09-19T08:07:00.000Z",
+      "revisionCount": 9,
+      "memoryStrength": 17,
+      "status": "scheduled",
+      "interval": 1,
+      "lastResult": "forgot",
+      "resultStreak": 0,
+      "weakFlags": [
+        "low_memory",
+        "recent_forgot",
+        "repeated_hard"
+      ],
+      "totalRevisionSeconds": 540
+    },
+    "mistakes": [
+      {
+        "forgotWhat": "",
+        "gotStuck": "",
+        "mistake": "Mutated the input array while iterating, which corrupted later comparisons.",
+        "insight": "",
+        "result": "forgot",
+        "reviewedAt": "2026-09-06T11:11:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f5a",
+        "createdAt": "2026-10-11T18:06:14.482Z",
+        "updatedAt": "2026-10-11T18:06:14.482Z"
+      },
+      {
+        "forgotWhat": "The core trick of reducing the problem to a known pattern.",
+        "gotStuck": "",
+        "mistake": "Went for the brute-force nested loop first and forgot the optimisation entirely.",
+        "insight": "",
+        "result": "forgot",
+        "reviewedAt": "2026-09-07T09:33:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f5b",
+        "createdAt": "2026-10-11T18:06:14.482Z",
+        "updatedAt": "2026-10-11T18:06:14.482Z"
+      },
+      {
+        "forgotWhat": "",
+        "gotStuck": "Lost 10 minutes because I did not define what left/right represent.",
+        "mistake": "",
+        "insight": "Always write down the loop invariant before coding.",
+        "result": "forgot",
+        "reviewedAt": "2026-09-19T08:07:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f5c",
+        "createdAt": "2026-10-11T18:06:14.482Z",
+        "updatedAt": "2026-10-11T18:06:14.482Z"
+      }
+    ],
+    "createdAt": "2026-08-22T11:13:00.000Z",
+    "updatedAt": "2026-10-11T19:36:04.231Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f5d",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Word Search",
+    "description": "Decide whether a word can be traced on a character board by moving to adjacent cells without reusing a cell.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/word-search/",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Backtracking",
+      "Matrix"
+    ],
+    "companies": [
+      "Bloomberg"
+    ],
+    "status": "solved",
+    "notes": "Mutate the board instead of a visited matrix to keep O(1) extra space — restore it on the way back.",
+    "approach": "Try a DFS start at every matching cell; mark visited in place, unmark on backtrack.",
+    "code": "function exist(board, word) {\n  const R = board.length, C = board[0].length;\n  const dfs = (r, c, k) => {\n    if (k === word.length) return true;\n    if (r < 0 || c < 0 || r >= R || c >= C || board[r][c] !== word[k]) return false;\n    const saved = board[r][c];\n    board[r][c] = \"#\";\n    const found = dfs(r + 1, c, k + 1) || dfs(r - 1, c, k + 1) || dfs(r, c + 1, k + 1) || dfs(r, c - 1, k + 1);\n    board[r][c] = saved;\n    return found;\n  };\n  for (let r = 0; r < R; r++) for (let c = 0; c < C; c++) if (dfs(r, c, 0)) return true;\n  return false;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(m·n·4^L)",
+    "spaceComplexity": "O(L)",
+    "solvedAt": "2026-07-27T10:07:00.000Z",
+    "solvedDateKey": "2026-07-27",
+    "revision": {
+      "nextReviewDate": "2026-08-21T00:00:00.000Z",
+      "lastReviewedAt": "2026-08-20T05:00:00.000Z",
+      "revisionCount": 9,
+      "memoryStrength": 18,
+      "status": "scheduled",
+      "interval": 1,
+      "lastResult": "forgot",
+      "resultStreak": 0,
+      "weakFlags": [
+        "low_memory",
+        "recent_forgot",
+        "repeated_hard"
+      ],
+      "totalRevisionSeconds": 540
+    },
+    "mistakes": [
+      {
+        "forgotWhat": "That a monotonic deque gives the sliding-window extremum in O(n).",
+        "gotStuck": "",
+        "mistake": "",
+        "insight": "Whenever a window needs min/max, think monotonic deque first.",
+        "result": "forgot",
+        "reviewedAt": "2026-07-27T09:27:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f5e",
+        "createdAt": "2026-10-11T18:06:14.483Z",
+        "updatedAt": "2026-10-11T18:06:14.483Z"
+      },
+      {
+        "forgotWhat": "",
+        "gotStuck": "",
+        "mistake": "Mutated the input array while iterating, which corrupted later comparisons.",
+        "insight": "",
+        "result": "forgot",
+        "reviewedAt": "2026-08-14T11:54:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f5f",
+        "createdAt": "2026-10-11T18:06:14.483Z",
+        "updatedAt": "2026-10-11T18:06:14.483Z"
+      },
+      {
+        "forgotWhat": "That a monotonic deque gives the sliding-window extremum in O(n).",
+        "gotStuck": "",
+        "mistake": "",
+        "insight": "Whenever a window needs min/max, think monotonic deque first.",
+        "result": "forgot",
+        "reviewedAt": "2026-08-15T12:14:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f60",
+        "createdAt": "2026-10-11T18:06:14.483Z",
+        "updatedAt": "2026-10-11T18:06:14.483Z"
+      }
+    ],
+    "createdAt": "2026-07-27T10:07:00.000Z",
+    "updatedAt": "2026-08-20T05:00:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f61",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Maximum Depth of Binary Tree",
+    "description": "Return the number of nodes along the longest root-to-leaf path.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/maximum-depth-of-binary-tree/",
+    "difficulty": "Easy",
+    "topics": [
+      "Tree",
+      "DFS",
+      "Recursion"
+    ],
+    "companies": [
+      "Salesforce"
+    ],
+    "status": "solved",
+    "notes": "Base case on null, not on leaf — saves a branch.",
+    "approach": "Depth = 1 + max(depth(left), depth(right)); null contributes 0.",
+    "code": "function maxDepth(root) {\n  if (!root) return 0;\n  return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(h)",
+    "solvedAt": "2026-07-06T09:13:00.000Z",
+    "solvedDateKey": "2026-07-06",
+    "revision": {
+      "nextReviewDate": "2026-12-19T00:00:00.000Z",
+      "lastReviewedAt": "2026-09-14T13:17:00.000Z",
+      "revisionCount": 4,
+      "memoryStrength": 85,
+      "status": "mastered",
+      "interval": 96,
+      "lastResult": "easy",
+      "resultStreak": 4,
+      "weakFlags": [],
+      "totalRevisionSeconds": 240
+    },
+    "mistakes": [],
+    "createdAt": "2026-07-06T09:13:00.000Z",
+    "updatedAt": "2026-09-14T13:17:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f62",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Invert Binary Tree",
+    "description": "Mirror a binary tree by swapping every left and right child.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/invert-binary-tree/",
+    "difficulty": "Easy",
+    "topics": [
+      "Tree",
+      "DFS",
+      "Recursion"
+    ],
+    "companies": [
+      "Google (the tweet one)"
+    ],
+    "status": "solved",
+    "notes": "BFS with a queue works identically level by level.",
+    "approach": "Post-order swap: invert children recursively, then exchange left and right.",
+    "code": "function invertTree(root) {\n  if (!root) return null;\n  const l = invertTree(root.left);\n  const r = invertTree(root.right);\n  root.left = r; root.right = l;\n  return root;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(h)",
+    "solvedAt": "2026-07-27T12:27:00.000Z",
+    "solvedDateKey": "2026-07-27",
+    "revision": {
+      "nextReviewDate": "2026-08-26T00:00:00.000Z",
+      "lastReviewedAt": "2026-08-22T10:23:00.000Z",
+      "revisionCount": 9,
+      "memoryStrength": 29,
+      "status": "scheduled",
+      "interval": 4,
+      "lastResult": "hard",
+      "resultStreak": 0,
+      "weakFlags": [
+        "low_memory",
+        "repeated_hard"
+      ],
+      "totalRevisionSeconds": 540
+    },
+    "mistakes": [
+      {
+        "forgotWhat": "",
+        "gotStuck": "Lost 10 minutes because I did not define what left/right represent.",
+        "mistake": "",
+        "insight": "Always write down the loop invariant before coding.",
+        "result": "hard",
+        "reviewedAt": "2026-08-04T10:45:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f63",
+        "createdAt": "2026-10-11T18:06:14.483Z",
+        "updatedAt": "2026-10-11T18:06:14.483Z"
+      },
+      {
+        "forgotWhat": "Base case / termination condition of the recursion.",
+        "gotStuck": "",
+        "mistake": "Off-by-one in the base case — infinite recursion on the edge input.",
+        "insight": "",
+        "result": "forgot",
+        "reviewedAt": "2026-08-06T10:17:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f64",
+        "createdAt": "2026-10-11T18:06:14.483Z",
+        "updatedAt": "2026-10-11T18:06:14.483Z"
+      },
+      {
+        "forgotWhat": "",
+        "gotStuck": "",
+        "mistake": "Mutated the input array while iterating, which corrupted later comparisons.",
+        "insight": "",
+        "result": "hard",
+        "reviewedAt": "2026-08-08T05:32:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f65",
+        "createdAt": "2026-10-11T18:06:14.483Z",
+        "updatedAt": "2026-10-11T18:06:14.483Z"
+      }
+    ],
+    "createdAt": "2026-07-27T12:27:00.000Z",
+    "updatedAt": "2026-08-22T10:23:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f66",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Binary Tree Level Order Traversal",
+    "description": "Return the node values grouped by level, from top to bottom and left to right.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/binary-tree-level-order-traversal/",
+    "difficulty": "Medium",
+    "topics": [
+      "Tree",
+      "BFS",
+      "Queue"
+    ],
+    "companies": [
+      "Amazon"
+    ],
+    "status": "solved",
+    "notes": "Snapshot queue.length at the start of each level — it must not change mid-loop.",
+    "approach": "BFS with a queue; process size-of-level nodes per iteration to split levels.",
+    "code": "function levelOrder(root) {\n  if (!root) return [];\n  const res = [], q = [root];\n  while (q.length) {\n    const size = q.length, level = [];\n    for (let i = 0; i < size; i++) {\n      const n = q.shift();\n      level.push(n.val);\n      if (n.left) q.push(n.left);\n      if (n.right) q.push(n.right);\n    }\n    res.push(level);\n  }\n  return res;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(n)",
+    "solvedAt": "2026-07-20T04:50:00.000Z",
+    "solvedDateKey": "2026-07-20",
+    "revision": {
+      "nextReviewDate": "2026-08-22T00:00:00.000Z",
+      "lastReviewedAt": "2026-08-08T09:14:00.000Z",
+      "revisionCount": 9,
+      "memoryStrength": 31,
+      "status": "scheduled",
+      "interval": 14,
+      "lastResult": "easy",
+      "resultStreak": 1,
+      "weakFlags": [
+        "low_memory",
+        "repeated_hard"
+      ],
+      "totalRevisionSeconds": 540
+    },
+    "mistakes": [
+      {
+        "forgotWhat": "",
+        "gotStuck": "",
+        "mistake": "Mutated the input array while iterating, which corrupted later comparisons.",
+        "insight": "",
+        "result": "forgot",
+        "reviewedAt": "2026-07-28T09:56:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f67",
+        "createdAt": "2026-10-11T18:06:14.483Z",
+        "updatedAt": "2026-10-11T18:06:14.483Z"
+      },
+      {
+        "forgotWhat": "",
+        "gotStuck": "",
+        "mistake": "",
+        "insight": "Draw the state transition table first; the recurrence writes itself.",
+        "result": "forgot",
+        "reviewedAt": "2026-08-03T04:42:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f68",
+        "createdAt": "2026-10-11T18:06:14.483Z",
+        "updatedAt": "2026-10-11T18:06:14.483Z"
+      },
+      {
+        "forgotWhat": "That a monotonic deque gives the sliding-window extremum in O(n).",
+        "gotStuck": "",
+        "mistake": "",
+        "insight": "Whenever a window needs min/max, think monotonic deque first.",
+        "result": "hard",
+        "reviewedAt": "2026-08-04T05:57:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f69",
+        "createdAt": "2026-10-11T18:06:14.483Z",
+        "updatedAt": "2026-10-11T18:06:14.483Z"
+      }
+    ],
+    "createdAt": "2026-07-20T04:50:00.000Z",
+    "updatedAt": "2026-08-08T09:14:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f6a",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Diameter of Binary Tree",
+    "description": "Return the length (in edges) of the longest path between any two nodes.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/diameter-of-binary-tree/",
+    "difficulty": "Easy",
+    "topics": [
+      "Tree",
+      "DFS"
+    ],
+    "companies": [
+      "Meta"
+    ],
+    "status": "solved",
+    "notes": "The diameter path may not pass the root — the global variable is essential.",
+    "approach": "While computing each subtree height, update the global best with leftHeight + rightHeight.",
+    "code": "function diameterOfBinaryTree(root) {\n  let best = 0;\n  const depth = (n) => {\n    if (!n) return 0;\n    const l = depth(n.left), r = depth(n.right);\n    best = Math.max(best, l + r);\n    return 1 + Math.max(l, r);\n  };\n  depth(root);\n  return best;\n}",
+    "language": "C++",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(h)",
+    "solvedAt": "2026-08-18T10:55:00.000Z",
+    "solvedDateKey": "2026-08-18",
+    "revision": {
+      "nextReviewDate": "2026-10-11T00:00:00.000Z",
+      "lastReviewedAt": "2026-09-10T13:07:00.000Z",
+      "revisionCount": 9,
+      "memoryStrength": 5,
+      "status": "due",
+      "interval": 31,
+      "lastResult": "forgot",
+      "resultStreak": 0,
+      "weakFlags": [
+        "low_memory",
+        "recent_forgot",
+        "repeated_hard"
+      ],
+      "totalRevisionSeconds": 540
+    },
+    "mistakes": [
+      {
+        "forgotWhat": "",
+        "gotStuck": "Lost 10 minutes because I did not define what left/right represent.",
+        "mistake": "",
+        "insight": "Always write down the loop invariant before coding.",
+        "result": "forgot",
+        "reviewedAt": "2026-08-30T09:30:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f6b",
+        "createdAt": "2026-10-11T18:06:14.483Z",
+        "updatedAt": "2026-10-11T18:06:14.483Z"
+      },
+      {
+        "forgotWhat": "The core trick of reducing the problem to a known pattern.",
+        "gotStuck": "",
+        "mistake": "Went for the brute-force nested loop first and forgot the optimisation entirely.",
+        "insight": "",
+        "result": "forgot",
+        "reviewedAt": "2026-08-31T04:20:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f6c",
+        "createdAt": "2026-10-11T18:06:14.483Z",
+        "updatedAt": "2026-10-11T18:06:14.483Z"
+      },
+      {
+        "forgotWhat": "",
+        "gotStuck": "",
+        "mistake": "",
+        "insight": "Draw the state transition table first; the recurrence writes itself.",
+        "result": "forgot",
+        "reviewedAt": "2026-09-02T10:38:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f6d",
+        "createdAt": "2026-10-11T18:06:14.483Z",
+        "updatedAt": "2026-10-11T18:06:14.483Z"
+      }
+    ],
+    "createdAt": "2026-08-18T10:55:00.000Z",
+    "updatedAt": "2026-10-11T18:49:00.424Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f6e",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Binary Tree Right Side View",
+    "description": "Return the values visible from the right side of the binary tree.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/binary-tree-right-side-view/",
+    "difficulty": "Medium",
+    "topics": [
+      "Tree",
+      "BFS",
+      "DFS"
+    ],
+    "companies": [
+      "Amazon"
+    ],
+    "status": "solved",
+    "notes": "DFS with depth-first-right-first traversal also works: record first value per depth.",
+    "approach": "BFS level order; the last node of each level is the right-side answer.",
+    "code": "function rightSideView(root) {\n  if (!root) return [];\n  const res = [], q = [root];\n  while (q.length) {\n    const size = q.length;\n    for (let i = 0; i < size; i++) {\n      const n = q.shift();\n      if (i === size - 1) res.push(n.val);\n      if (n.left) q.push(n.left);\n      if (n.right) q.push(n.right);\n    }\n  }\n  return res;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(n)",
+    "solvedAt": "2026-08-12T05:35:00.000Z",
+    "solvedDateKey": "2026-08-12",
+    "revision": {
+      "nextReviewDate": "2026-10-16T00:00:00.000Z",
+      "lastReviewedAt": "2026-09-05T04:51:00.000Z",
+      "revisionCount": 3,
+      "memoryStrength": 88,
+      "status": "mastered",
+      "interval": 41,
+      "lastResult": "easy",
+      "resultStreak": 3,
+      "weakFlags": [],
+      "totalRevisionSeconds": 180
+    },
+    "mistakes": [],
+    "createdAt": "2026-08-12T05:35:00.000Z",
+    "updatedAt": "2026-09-05T04:51:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f6f",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Validate Binary Search Tree",
+    "description": "Decide whether every node satisfies the BST ordering property with strict bounds.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/validate-binary-search-tree/",
+    "difficulty": "Medium",
+    "topics": [
+      "Tree",
+      "BST",
+      "DFS"
+    ],
+    "companies": [
+      "Microsoft"
+    ],
+    "status": "solved",
+    "notes": "Checking only parent-child pairs is WRONG — a deep node can violate an ancestor.",
+    "approach": "Recurse with (low, high) bounds; each node must lie strictly inside its inherited range.",
+    "code": "function isValidBST(root) {\n  const check = (n, lo, hi) => {\n    if (!n) return true;\n    if (n.val <= lo || n.val >= hi) return false;\n    return check(n.left, lo, n.val) && check(n.right, n.val, hi);\n  };\n  return check(root, -Infinity, Infinity);\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(h)",
+    "solvedAt": "2026-08-05T09:10:00.000Z",
+    "solvedDateKey": "2026-08-05",
+    "revision": {
+      "nextReviewDate": "2027-04-21T00:00:00.000Z",
+      "lastReviewedAt": "2026-10-11T06:02:00.000Z",
+      "revisionCount": 4,
+      "memoryStrength": 92,
+      "status": "mastered",
+      "interval": 192,
+      "lastResult": "good",
+      "resultStreak": 4,
+      "weakFlags": [],
+      "totalRevisionSeconds": 300
+    },
+    "mistakes": [],
+    "createdAt": "2026-08-05T09:10:00.000Z",
+    "updatedAt": "2026-09-29T07:12:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f70",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Kth Smallest Element in a BST",
+    "description": "Return the k-th smallest value in a binary search tree (1-indexed).",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/kth-smallest-element-in-a-bst/",
+    "difficulty": "Medium",
+    "topics": [
+      "Tree",
+      "BST",
+      "DFS"
+    ],
+    "companies": [
+      "Google"
+    ],
+    "status": "solved",
+    "notes": "Early exit with a thrown error/flag once k is reached — do not traverse the whole tree.",
+    "approach": "In-order traversal is sorted: visit left, count, and return as soon as the counter hits k.",
+    "code": "function kthSmallest(root, k) {\n  let count = 0, answer = -1;\n  const walk = (n) => {\n    if (!n || answer !== -1) return;\n    walk(n.left);\n    count++;\n    if (count === k) { answer = n.val; return; }\n    walk(n.right);\n  };\n  walk(root);\n  return answer;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(h + k)",
+    "spaceComplexity": "O(h)",
+    "solvedAt": "2026-08-14T05:20:00.000Z",
+    "solvedDateKey": "2026-08-14",
+    "revision": {
+      "nextReviewDate": "2026-11-01T00:00:00.000Z",
+      "lastReviewedAt": "2026-09-14T09:40:00.000Z",
+      "revisionCount": 3,
+      "memoryStrength": 79,
+      "status": "scheduled",
+      "interval": 48,
+      "lastResult": "good",
+      "resultStreak": 3,
+      "weakFlags": [],
+      "totalRevisionSeconds": 180
+    },
+    "mistakes": [],
+    "createdAt": "2026-08-14T05:20:00.000Z",
+    "updatedAt": "2026-09-14T09:40:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f71",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Number of Islands",
+    "description": "Count connected groups of land cells in a 2D grid (4-directional).",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/number-of-islands/",
+    "difficulty": "Medium",
+    "topics": [
+      "Graph",
+      "DFS",
+      "BFS",
+      "Matrix"
+    ],
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "status": "solved",
+    "notes": "Sink (set to water) instead of a visited set — classic O(1) space trick.",
+    "approach": "Scan the grid; on unvisited land, increment the count and flood-fill to sink the whole island.",
+    "code": "function numIslands(grid) {\n  if (!grid.length) return 0;\n  let count = 0;\n  const sink = (r, c) => {\n    if (r < 0 || c < 0 || r >= grid.length || c >= grid[0].length || grid[r][c] !== \"1\") return;\n    grid[r][c] = \"0\";\n    sink(r + 1, c); sink(r - 1, c); sink(r, c + 1); sink(r, c - 1);\n  };\n  for (let r = 0; r < grid.length; r++) {\n    for (let c = 0; c < grid[0].length; c++) {\n      if (grid[r][c] === \"1\") { count++; sink(r, c); }\n    }\n  }\n  return count;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(m·n)",
+    "spaceComplexity": "O(m·n)",
+    "solvedAt": "2026-09-10T12:27:00.000Z",
+    "solvedDateKey": "2026-09-10",
+    "revision": {
+      "nextReviewDate": "2026-10-11T00:00:00.000Z",
+      "lastReviewedAt": "2026-10-08T05:26:00.000Z",
+      "revisionCount": 4,
+      "memoryStrength": 42,
+      "status": "due",
+      "interval": 4,
+      "lastResult": "hard",
+      "resultStreak": 0,
+      "weakFlags": [
+        "low_memory",
+        "repeated_hard"
+      ],
+      "totalRevisionSeconds": 240
+    },
+    "mistakes": [
+      {
+        "forgotWhat": "",
+        "gotStuck": "",
+        "mistake": "",
+        "insight": "Draw the state transition table first; the recurrence writes itself.",
+        "result": "hard",
+        "reviewedAt": "2026-10-01T06:54:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f72",
+        "createdAt": "2026-10-11T18:06:14.484Z",
+        "updatedAt": "2026-10-11T18:06:14.484Z"
+      },
+      {
+        "forgotWhat": "That a monotonic deque gives the sliding-window extremum in O(n).",
+        "gotStuck": "",
+        "mistake": "",
+        "insight": "Whenever a window needs min/max, think monotonic deque first.",
+        "result": "hard",
+        "reviewedAt": "2026-10-08T05:26:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f73",
+        "createdAt": "2026-10-11T18:06:14.484Z",
+        "updatedAt": "2026-10-11T18:06:14.484Z"
+      }
+    ],
+    "createdAt": "2026-09-10T12:27:00.000Z",
+    "updatedAt": "2026-10-08T05:26:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f74",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Course Schedule",
+    "description": "Given prerequisites between courses, decide whether every course can be finished (cycle detection).",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/course-schedule/",
+    "difficulty": "Medium",
+    "topics": [
+      "Graph",
+      "BFS",
+      "Topological Sort",
+      "DFS"
+    ],
+    "companies": [
+      "Amazon",
+      "Adobe"
+    ],
+    "status": "solved",
+    "notes": "Directed edges point from prerequisite → course; direction mistakes are the usual bug.",
+    "approach": "Kahn's algorithm: compute indegrees, queue all zero-indegree nodes, and consume edges — if fewer than n nodes are processed a cycle exists.",
+    "code": "function canFinish(n, prereqs) {\n  const adj = Array.from({ length: n }, () => []);\n  const indeg = Array(n).fill(0);\n  for (const [course, pre] of prereqs) { adj[pre].push(course); indeg[course]++; }\n  const q = [];\n  for (let i = 0; i < n; i++) if (indeg[i] === 0) q.push(i);\n  let seen = 0;\n  while (q.length) {\n    const node = q.shift();\n    seen++;\n    for (const next of adj[node]) if (--indeg[next] === 0) q.push(next);\n  }\n  return seen === n;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(V + E)",
+    "spaceComplexity": "O(V + E)",
+    "solvedAt": "2026-07-08T09:38:00.000Z",
+    "solvedDateKey": "2026-07-08",
+    "revision": {
+      "nextReviewDate": "2027-01-17T00:00:00.000Z",
+      "lastReviewedAt": "2026-09-17T06:21:00.000Z",
+      "revisionCount": 3,
+      "memoryStrength": 93,
+      "status": "mastered",
+      "interval": 122,
+      "lastResult": "easy",
+      "resultStreak": 3,
+      "weakFlags": [],
+      "totalRevisionSeconds": 180
+    },
+    "mistakes": [],
+    "createdAt": "2026-07-08T09:38:00.000Z",
+    "updatedAt": "2026-09-17T06:21:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f75",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Clone Graph",
+    "description": "Produce a deep copy of an undirected graph given any node of it.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/clone-graph/",
+    "difficulty": "Medium",
+    "topics": [
+      "Graph",
+      "DFS",
+      "Hash Map"
+    ],
+    "companies": [
+      "Uber"
+    ],
+    "status": "solved",
+    "notes": "Register the clone in the map BEFORE recursing or infinite loops appear.",
+    "approach": "Map original → clone while DFS-ing; neighbours are wired through the map so cycles terminate.",
+    "code": "function cloneGraph(node) {\n  if (!node) return null;\n  const map = new Map();\n  const dfs = (n) => {\n    if (map.has(n)) return map.get(n);\n    const copy = { val: n.val, neighbors: [] };\n    map.set(n, copy);\n    for (const nb of n.neighbors) copy.neighbors.push(dfs(nb));\n    return copy;\n  };\n  return dfs(node);\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(V + E)",
+    "spaceComplexity": "O(V)",
+    "solvedAt": "2026-07-07T04:45:00.000Z",
+    "solvedDateKey": "2026-07-07",
+    "revision": {
+      "nextReviewDate": "2026-12-07T00:00:00.000Z",
+      "lastReviewedAt": "2026-10-06T12:05:00.000Z",
+      "revisionCount": 5,
+      "memoryStrength": 73,
+      "status": "scheduled",
+      "interval": 62,
+      "lastResult": "easy",
+      "resultStreak": 1,
+      "weakFlags": [],
+      "totalRevisionSeconds": 300
+    },
+    "mistakes": [],
+    "createdAt": "2026-07-07T04:45:00.000Z",
+    "updatedAt": "2026-10-06T12:05:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f76",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Rotting Oranges",
+    "description": "Return the minutes until no fresh orange remains, spreading rot to 4-neighbours each minute (-1 if impossible).",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/rotting-oranges/",
+    "difficulty": "Medium",
+    "topics": [
+      "Graph",
+      "BFS",
+      "Matrix"
+    ],
+    "companies": [
+      "Amazon"
+    ],
+    "status": "solved",
+    "notes": "Level size per iteration = one minute; leftovers of fresh cells mean -1.",
+    "approach": "Multi-source BFS: seed the queue with all rotten cells, expand level by level and count minutes.",
+    "code": "function orangesRotting(grid) {\n  const R = grid.length, C = grid[0].length;\n  const q = [];\n  let fresh = 0;\n  for (let r = 0; r < R; r++) for (let c = 0; c < C; c++) {\n    if (grid[r][c] === 2) q.push([r, c]);\n    else if (grid[r][c] === 1) fresh++;\n  }\n  let minutes = 0;\n  const dirs = [[1, 0], [-1, 0], [0, 1], [0, -1]];\n  while (q.length && fresh > 0) {\n    const size = q.length;\n    for (let i = 0; i < size; i++) {\n      const [r, c] = q.shift();\n      for (const [dr, dc] of dirs) {\n        const nr = r + dr, nc = c + dc;\n        if (nr < 0 || nc < 0 || nr >= R || nc >= C || grid[nr][nc] !== 1) continue;\n        grid[nr][nc] = 2; fresh--; q.push([nr, nc]);\n      }\n    }\n    minutes++;\n  }\n  return fresh === 0 ? minutes : -1;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(m·n)",
+    "spaceComplexity": "O(m·n)",
+    "solvedAt": "2026-06-05T05:20:00.000Z",
+    "solvedDateKey": "2026-06-05",
+    "revision": {
+      "nextReviewDate": "2026-10-06T00:00:00.000Z",
+      "lastReviewedAt": "2026-07-30T06:27:00.000Z",
+      "revisionCount": 4,
+      "memoryStrength": 84,
+      "status": "scheduled",
+      "interval": 68,
+      "lastResult": "good",
+      "resultStreak": 4,
+      "weakFlags": [],
+      "totalRevisionSeconds": 240
+    },
+    "mistakes": [],
+    "createdAt": "2026-06-05T05:20:00.000Z",
+    "updatedAt": "2026-07-30T06:27:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f77",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Jump Game",
+    "description": "Decide whether the last index is reachable when each position holds a maximum jump length.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/jump-game/",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Greedy",
+      "Dynamic Programming"
+    ],
+    "companies": [
+      "Google"
+    ],
+    "status": "solved",
+    "notes": "Greedy reach is O(n) vs the O(n^2) DP.",
+    "approach": "Track the farthest reachable index; if any position lies beyond it, stop — otherwise the end is reachable.",
+    "code": "function canJump(nums) {\n  let reach = 0;\n  for (let i = 0; i < nums.length; i++) {\n    if (i > reach) return false;\n    reach = Math.max(reach, i + nums[i]);\n    if (reach >= nums.length - 1) return true;\n  }\n  return true;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "solvedAt": "2026-07-24T05:26:00.000Z",
+    "solvedDateKey": "2026-07-24",
+    "revision": {
+      "nextReviewDate": "2026-10-11T00:00:00.000Z",
+      "lastReviewedAt": "2026-09-19T04:11:00.000Z",
+      "revisionCount": 3,
+      "memoryStrength": 86,
+      "status": "due",
+      "interval": 23,
+      "lastResult": "easy",
+      "resultStreak": 3,
+      "weakFlags": [],
+      "totalRevisionSeconds": 180
+    },
+    "mistakes": [],
+    "createdAt": "2026-07-24T05:26:00.000Z",
+    "updatedAt": "2026-09-19T04:11:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f78",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Gas Station",
+    "description": "Find the unique starting index (if any) that lets a car complete a circular route of gas and cost.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/gas-station/",
+    "difficulty": "Medium",
+    "topics": [
+      "Array",
+      "Greedy"
+    ],
+    "companies": [
+      "Amazon"
+    ],
+    "status": "solved",
+    "notes": "A negative running sum means every skipped station is an invalid start.",
+    "approach": "If total gas >= total cost a solution exists; reset the start whenever the running tank goes negative.",
+    "code": "function canCompleteCircuit(gas, cost) {\n  let total = 0, tank = 0, start = 0;\n  for (let i = 0; i < gas.length; i++) {\n    const diff = gas[i] - cost[i];\n    total += diff; tank += diff;\n    if (tank < 0) { start = i + 1; tank = 0; }\n  }\n  return total >= 0 ? start : -1;\n}",
+    "language": "C++",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "solvedAt": "2026-10-11T19:37:33.483Z",
+    "solvedDateKey": "2026-10-12",
+    "revision": {
+      "nextReviewDate": "2026-09-13T00:00:00.000Z",
+      "lastReviewedAt": "2026-09-12T10:05:00.000Z",
+      "revisionCount": 9,
+      "memoryStrength": 29,
+      "status": "scheduled",
+      "interval": 1,
+      "lastResult": "forgot",
+      "resultStreak": 0,
+      "weakFlags": [
+        "low_memory",
+        "recent_forgot"
+      ],
+      "totalRevisionSeconds": 540
+    },
+    "mistakes": [
+      {
+        "forgotWhat": "The core trick of reducing the problem to a known pattern.",
+        "gotStuck": "",
+        "mistake": "Went for the brute-force nested loop first and forgot the optimisation entirely.",
+        "insight": "",
+        "result": "forgot",
+        "reviewedAt": "2026-08-10T05:42:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f79",
+        "createdAt": "2026-10-11T18:06:14.484Z",
+        "updatedAt": "2026-10-11T18:06:14.484Z"
+      },
+      {
+        "forgotWhat": "That a monotonic deque gives the sliding-window extremum in O(n).",
+        "gotStuck": "",
+        "mistake": "",
+        "insight": "Whenever a window needs min/max, think monotonic deque first.",
+        "result": "forgot",
+        "reviewedAt": "2026-08-11T10:57:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f7a",
+        "createdAt": "2026-10-11T18:06:14.484Z",
+        "updatedAt": "2026-10-11T18:06:14.484Z"
+      },
+      {
+        "forgotWhat": "",
+        "gotStuck": "",
+        "mistake": "",
+        "insight": "Draw the state transition table first; the recurrence writes itself.",
+        "result": "forgot",
+        "reviewedAt": "2026-08-14T08:38:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f7b",
+        "createdAt": "2026-10-11T18:06:14.484Z",
+        "updatedAt": "2026-10-11T18:06:14.484Z"
+      }
+    ],
+    "createdAt": "2026-07-28T09:50:00.000Z",
+    "updatedAt": "2026-10-11T19:37:33.520Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f7c",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Climbing Stairs",
+    "description": "Count the distinct ways to climb n steps when you may take 1 or 2 steps at a time.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/climbing-stairs/",
+    "difficulty": "Easy",
+    "topics": [
+      "Dynamic Programming",
+      "Math"
+    ],
+    "companies": [
+      "Amazon"
+    ],
+    "status": "solved",
+    "notes": "Bottom-up rolling vars avoid the recursion stack entirely.",
+    "approach": "It is Fibonacci: ways(n) = ways(n-1) + ways(n-2); keep only two rolling variables.",
+    "code": "function climbStairs(n) {\n  let a = 1, b = 1;\n  for (let i = 0; i < n - 1; i++) [a, b] = [b, a + b];\n  return b;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "solvedAt": "2026-09-12T11:58:00.000Z",
+    "solvedDateKey": "2026-09-12",
+    "revision": {
+      "nextReviewDate": "2026-11-06T00:00:00.000Z",
+      "lastReviewedAt": "2026-10-03T06:01:00.000Z",
+      "revisionCount": 3,
+      "memoryStrength": 81,
+      "status": "scheduled",
+      "interval": 34,
+      "lastResult": "easy",
+      "resultStreak": 3,
+      "weakFlags": [],
+      "totalRevisionSeconds": 180
+    },
+    "mistakes": [],
+    "createdAt": "2026-09-12T11:58:00.000Z",
+    "updatedAt": "2026-10-03T06:01:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f7d",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "House Robber",
+    "description": "Maximise loot from a row of houses without robbing two adjacent houses.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/house-robber/",
+    "difficulty": "Medium",
+    "topics": [
+      "Dynamic Programming",
+      "Array"
+    ],
+    "companies": [
+      "Amazon"
+    ],
+    "status": "solved",
+    "notes": "The two-step lookback is the whole recurrence — never carry only one state.",
+    "approach": "dp[i] = max(dp[i-1], dp[i-2] + nums[i]) with two rolling variables.",
+    "code": "function rob(nums) {\n  let prev2 = 0, prev1 = 0;\n  for (const n of nums) {\n    const cur = Math.max(prev1, prev2 + n);\n    prev2 = prev1; prev1 = cur;\n  }\n  return prev1;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "solvedAt": "2026-07-03T11:55:00.000Z",
+    "solvedDateKey": "2026-07-03",
+    "revision": {
+      "nextReviewDate": "2027-03-24T00:00:00.000Z",
+      "lastReviewedAt": "2026-10-11T02:41:00.000Z",
+      "revisionCount": 5,
+      "memoryStrength": 92,
+      "status": "mastered",
+      "interval": 164,
+      "lastResult": "good",
+      "resultStreak": 5,
+      "weakFlags": [],
+      "totalRevisionSeconds": 360
+    },
+    "mistakes": [],
+    "createdAt": "2026-07-03T11:55:00.000Z",
+    "updatedAt": "2026-08-30T04:39:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f7e",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Coin Change",
+    "description": "Return the fewest coins that sum to an amount, or -1 if impossible (unlimited reuse of each coin).",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/coin-change/",
+    "difficulty": "Medium",
+    "topics": [
+      "Dynamic Programming"
+    ],
+    "companies": [
+      "Uber"
+    ],
+    "status": "solved",
+    "notes": "Overwrite dp[0] after the loop or the empty solution leaks into answers.",
+    "approach": "Bottom-up unbounded knapsack: dp[x] = min over coins of dp[x - coin] + 1, seeded with dp[0] = 0.",
+    "code": "function coinChange(coins, amount) {\n  const dp = Array(amount + 1).fill(Infinity);\n  dp[0] = 0;\n  for (let x = 1; x <= amount; x++) {\n    for (const c of coins) if (c <= x) dp[x] = Math.min(dp[x], dp[x - c] + 1);\n  }\n  return dp[amount] === Infinity ? -1 : dp[amount];\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(amount · coins)",
+    "spaceComplexity": "O(amount)",
+    "solvedAt": "2026-07-24T05:43:00.000Z",
+    "solvedDateKey": "2026-07-24",
+    "revision": {
+      "nextReviewDate": "2026-10-11T00:00:00.000Z",
+      "lastReviewedAt": "2026-09-10T09:33:00.000Z",
+      "revisionCount": 3,
+      "memoryStrength": 86,
+      "status": "due",
+      "interval": 31,
+      "lastResult": "easy",
+      "resultStreak": 3,
+      "weakFlags": [],
+      "totalRevisionSeconds": 180
+    },
+    "mistakes": [],
+    "createdAt": "2026-07-24T05:43:00.000Z",
+    "updatedAt": "2026-09-10T09:33:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f7f",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Longest Increasing Subsequence",
+    "description": "Find the length of the longest strictly increasing subsequence; aim for O(n log n).",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/longest-increasing-subsequence/",
+    "difficulty": "Medium",
+    "topics": [
+      "Dynamic Programming",
+      "Binary Search"
+    ],
+    "companies": [
+      "Microsoft"
+    ],
+    "status": "solved",
+    "notes": "The tails array is NOT the LIS itself — only its length is valid.",
+    "approach": "Patience sorting: maintain an array of tail values; binary-search each number to replace or extend.",
+    "code": "function lengthOfLIS(nums) {\n  const tails = [];\n  for (const n of nums) {\n    let lo = 0, hi = tails.length;\n    while (lo < hi) {\n      const mid = (lo + hi) >> 1;\n      if (tails[mid] < n) lo = mid + 1; else hi = mid;\n    }\n    tails[lo] = n;\n  }\n  return tails.length;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n log n)",
+    "spaceComplexity": "O(n)",
+    "solvedAt": "2026-06-23T08:11:00.000Z",
+    "solvedDateKey": "2026-06-23",
+    "revision": {
+      "nextReviewDate": "2026-10-12T00:00:00.000Z",
+      "lastReviewedAt": "2026-08-03T11:51:00.000Z",
+      "revisionCount": 3,
+      "memoryStrength": 88,
+      "status": "mastered",
+      "interval": 70,
+      "lastResult": "easy",
+      "resultStreak": 3,
+      "weakFlags": [],
+      "totalRevisionSeconds": 180
+    },
+    "mistakes": [],
+    "createdAt": "2026-06-23T08:11:00.000Z",
+    "updatedAt": "2026-08-03T11:51:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f80",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Unique Paths",
+    "description": "Count distinct routes from the top-left to the bottom-right of an m×n grid moving only right or down.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/unique-paths/",
+    "difficulty": "Medium",
+    "topics": [
+      "Dynamic Programming",
+      "Math"
+    ],
+    "companies": [
+      "Bloomberg"
+    ],
+    "status": "solved",
+    "notes": "Combinatorial C(m+n-2, m-1) is an O(1) alternative.",
+    "approach": "Each cell equals the sum of the cell above and the cell to the left; a 1-D rolling row is enough.",
+    "code": "function uniquePaths(m, n) {\n  const row = Array(n).fill(1);\n  for (let r = 1; r < m; r++) {\n    for (let c = 1; c < n; c++) row[c] += row[c - 1];\n  }\n  return row[n - 1];\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(m·n)",
+    "spaceComplexity": "O(n)",
+    "solvedAt": "2026-07-15T10:41:00.000Z",
+    "solvedDateKey": "2026-07-15",
+    "revision": {
+      "nextReviewDate": "2026-10-24T00:00:00.000Z",
+      "lastReviewedAt": "2026-09-06T06:42:00.000Z",
+      "revisionCount": 5,
+      "memoryStrength": 70,
+      "status": "scheduled",
+      "interval": 48,
+      "lastResult": "good",
+      "resultStreak": 3,
+      "weakFlags": [],
+      "totalRevisionSeconds": 300
+    },
+    "mistakes": [
+      {
+        "forgotWhat": "The core trick of reducing the problem to a known pattern.",
+        "gotStuck": "",
+        "mistake": "Went for the brute-force nested loop first and forgot the optimisation entirely.",
+        "insight": "",
+        "result": "hard",
+        "reviewedAt": "2026-07-27T09:38:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f81",
+        "createdAt": "2026-10-11T18:06:14.485Z",
+        "updatedAt": "2026-10-11T18:06:14.485Z"
+      }
+    ],
+    "createdAt": "2026-07-15T10:41:00.000Z",
+    "updatedAt": "2026-09-06T06:42:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f82",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Partition Equal Subset Sum",
+    "description": "Decide whether the array can be split into two subsets with equal sums.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/partition-equal-subset-sum/",
+    "difficulty": "Medium",
+    "topics": [
+      "Dynamic Programming",
+      "Array"
+    ],
+    "companies": [
+      "Meta"
+    ],
+    "status": "solved",
+    "notes": "Iterate weights DESCENDING or each value counts twice.",
+    "approach": "If the total is odd → false; otherwise 0/1 knapsack for target = total/2 with a boolean bitset.",
+    "code": "function canPartition(nums) {\n  const total = nums.reduce((a, b) => a + b, 0);\n  if (total % 2) return false;\n  const target = total / 2;\n  let dp = 1;\n  for (const n of nums) dp |= dp << n;\n  return Boolean((dp >> target) & 1);\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n · total)",
+    "spaceComplexity": "O(total)",
+    "solvedAt": "2026-09-04T05:03:00.000Z",
+    "solvedDateKey": "2026-09-04",
+    "revision": {
+      "nextReviewDate": "2026-10-22T00:00:00.000Z",
+      "lastReviewedAt": "2026-10-08T07:17:00.000Z",
+      "revisionCount": 5,
+      "memoryStrength": 63,
+      "status": "scheduled",
+      "interval": 14,
+      "lastResult": "good",
+      "resultStreak": 2,
+      "weakFlags": [],
+      "totalRevisionSeconds": 300
+    },
+    "mistakes": [],
+    "createdAt": "2026-09-04T05:03:00.000Z",
+    "updatedAt": "2026-10-08T07:17:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f83",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Implement Trie (Prefix Tree)",
+    "description": "Implement insert, search and prefix queries over a word set.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/implement-trie-prefix-tree/",
+    "difficulty": "Medium",
+    "topics": [
+      "Trie",
+      "Design",
+      "String"
+    ],
+    "companies": [
+      "Google"
+    ],
+    "status": "solved",
+    "notes": "Mark end separately from children — search requires the FULL word.",
+    "approach": "Nodes hold 26 children and an end flag; walk one character at a time for both search and prefix.",
+    "code": "class Trie {\n  constructor() { this.root = { kids: {}, end: false }; }\n  insert(word) {\n    let n = this.root;\n    for (const c of word) { n.kids[c] ??= { kids: {}, end: false }; n = n.kids[c]; }\n    n.end = true;\n  }\n  search(word) { let n = this.root; for (const c of word) { n = n.kids[c]; if (!n) return false; } return n.end; }\n  startsWith(p) { let n = this.root; for (const c of p) { n = n.kids[c]; if (!n) return false; } return true; }\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(L)",
+    "spaceComplexity": "O(total chars)",
+    "solvedAt": "2026-09-11T04:44:00.000Z",
+    "solvedDateKey": "2026-09-11",
+    "revision": {
+      "nextReviewDate": "2026-10-15T00:00:00.000Z",
+      "lastReviewedAt": "2026-09-21T06:04:00.000Z",
+      "revisionCount": 2,
+      "memoryStrength": 78,
+      "status": "scheduled",
+      "interval": 24,
+      "lastResult": "easy",
+      "resultStreak": 2,
+      "weakFlags": [],
+      "totalRevisionSeconds": 120
+    },
+    "mistakes": [],
+    "createdAt": "2026-09-11T04:44:00.000Z",
+    "updatedAt": "2026-09-21T06:04:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f84",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Word Search II",
+    "description": "Find every word from a dictionary that can be traced on a character board (no cell reuse per word).",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/word-search-ii/",
+    "difficulty": "Hard",
+    "topics": [
+      "Trie",
+      "Backtracking",
+      "Matrix"
+    ],
+    "companies": [
+      "Amazon"
+    ],
+    "status": "solved",
+    "notes": "Remove found words from the trie to avoid duplicate results.",
+    "approach": "Build a trie of the dictionary, DFS the board while walking the trie, and prune dead branches.",
+    "code": "function findWords(board, words) {\n  const root = { kids: {}, word: null };\n  for (const w of words) {\n    let n = root;\n    for (const c of w) n.kids[c] ??= { kids: {}, word: null }, n = n.kids[c];\n    n.word = w;\n  }\n  const out = [];\n  const dfs = (r, c, node) => {\n    const ch = board[r][c];\n    const next = node.kids[ch];\n    if (!next) return;\n    if (next.word) { out.push(next.word); next.word = null; }\n    board[r][c] = \"#\";\n    for (const [dr, dc] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {\n      const nr = r + dr, nc = c + dc;\n      if (nr >= 0 && nc >= 0 && nr < board.length && nc < board[0].length && board[nr][nc] !== \"#\") dfs(nr, nc, next);\n    }\n    board[r][c] = ch;\n  };\n  for (let r = 0; r < board.length; r++) for (let c = 0; c < board[0].length; c++) dfs(r, c, root);\n  return out;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(m·n·4^L)",
+    "spaceComplexity": "O(total chars)",
+    "solvedAt": "2026-07-27T08:26:00.000Z",
+    "solvedDateKey": "2026-07-27",
+    "revision": {
+      "nextReviewDate": "2026-08-20T00:00:00.000Z",
+      "lastReviewedAt": "2026-08-16T04:48:00.000Z",
+      "revisionCount": 9,
+      "memoryStrength": 22,
+      "status": "scheduled",
+      "interval": 4,
+      "lastResult": "hard",
+      "resultStreak": 0,
+      "weakFlags": [
+        "low_memory",
+        "repeated_hard"
+      ],
+      "totalRevisionSeconds": 540
+    },
+    "mistakes": [
+      {
+        "forgotWhat": "That a monotonic deque gives the sliding-window extremum in O(n).",
+        "gotStuck": "",
+        "mistake": "",
+        "insight": "Whenever a window needs min/max, think monotonic deque first.",
+        "result": "forgot",
+        "reviewedAt": "2026-08-03T07:04:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f85",
+        "createdAt": "2026-10-11T18:06:14.485Z",
+        "updatedAt": "2026-10-11T18:06:14.485Z"
+      },
+      {
+        "forgotWhat": "That a monotonic deque gives the sliding-window extremum in O(n).",
+        "gotStuck": "",
+        "mistake": "",
+        "insight": "Whenever a window needs min/max, think monotonic deque first.",
+        "result": "forgot",
+        "reviewedAt": "2026-08-05T03:33:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f86",
+        "createdAt": "2026-10-11T18:06:14.485Z",
+        "updatedAt": "2026-10-11T18:06:14.485Z"
+      },
+      {
+        "forgotWhat": "",
+        "gotStuck": "",
+        "mistake": "",
+        "insight": "Draw the state transition table first; the recurrence writes itself.",
+        "result": "forgot",
+        "reviewedAt": "2026-08-06T10:46:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f87",
+        "createdAt": "2026-10-11T18:06:14.485Z",
+        "updatedAt": "2026-10-11T18:06:14.485Z"
+      }
+    ],
+    "createdAt": "2026-07-27T08:26:00.000Z",
+    "updatedAt": "2026-08-16T04:48:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f88",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Single Number",
+    "description": "Every value appears twice except one — find it without extra memory.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/single-number/",
+    "difficulty": "Easy",
+    "topics": [
+      "Bit Manipulation",
+      "Array"
+    ],
+    "companies": [
+      "LinkedIn"
+    ],
+    "status": "solved",
+    "notes": "Works because XOR is commutative and associative.",
+    "approach": "XOR everything: duplicates cancel (a ^ a = 0) and 0 ^ x = x.",
+    "code": "function singleNumber(nums) {\n  return nums.reduce((acc, n) => acc ^ n, 0);\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "solvedAt": "2026-06-11T11:53:00.000Z",
+    "solvedDateKey": "2026-06-11",
+    "revision": {
+      "nextReviewDate": "2026-10-12T00:00:00.000Z",
+      "lastReviewedAt": "2026-08-05T06:51:00.000Z",
+      "revisionCount": 4,
+      "memoryStrength": 84,
+      "status": "scheduled",
+      "interval": 68,
+      "lastResult": "good",
+      "resultStreak": 4,
+      "weakFlags": [],
+      "totalRevisionSeconds": 240
+    },
+    "mistakes": [],
+    "createdAt": "2026-06-11T11:53:00.000Z",
+    "updatedAt": "2026-08-05T06:51:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f89",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Counting Bits",
+    "description": "Return an array with the number of 1-bits for every integer from 0 to n.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/counting-bits/",
+    "difficulty": "Easy",
+    "topics": [
+      "Bit Manipulation",
+      "Dynamic Programming"
+    ],
+    "companies": [
+      "Apple"
+    ],
+    "status": "solved",
+    "notes": "Brian Kernighan (i &= i - 1) also works per number.",
+    "approach": "dp[i] = dp[i >> 1] + (i & 1) — reuse the count of the shifted value plus the low bit.",
+    "code": "function countBits(n) {\n  const dp = Array(n + 1).fill(0);\n  for (let i = 1; i <= n; i++) dp[i] = dp[i >> 1] + (i & 1);\n  return dp;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(n)",
+    "solvedAt": "2026-08-05T10:59:00.000Z",
+    "solvedDateKey": "2026-08-05",
+    "revision": {
+      "nextReviewDate": "2026-09-06T00:00:00.000Z",
+      "lastReviewedAt": "2026-09-05T10:55:00.000Z",
+      "revisionCount": 9,
+      "memoryStrength": 12,
+      "status": "scheduled",
+      "interval": 1,
+      "lastResult": "forgot",
+      "resultStreak": 0,
+      "weakFlags": [
+        "low_memory",
+        "recent_forgot",
+        "repeated_hard"
+      ],
+      "totalRevisionSeconds": 540
+    },
+    "mistakes": [
+      {
+        "forgotWhat": "",
+        "gotStuck": "Lost 10 minutes because I did not define what left/right represent.",
+        "mistake": "",
+        "insight": "Always write down the loop invariant before coding.",
+        "result": "forgot",
+        "reviewedAt": "2026-08-19T12:52:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f8a",
+        "createdAt": "2026-10-11T18:06:14.486Z",
+        "updatedAt": "2026-10-11T18:06:14.486Z"
+      },
+      {
+        "forgotWhat": "",
+        "gotStuck": "Lost 10 minutes because I did not define what left/right represent.",
+        "mistake": "",
+        "insight": "Always write down the loop invariant before coding.",
+        "result": "forgot",
+        "reviewedAt": "2026-08-22T11:00:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f8b",
+        "createdAt": "2026-10-11T18:06:14.486Z",
+        "updatedAt": "2026-10-11T18:06:14.486Z"
+      },
+      {
+        "forgotWhat": "",
+        "gotStuck": "",
+        "mistake": "Mutated the input array while iterating, which corrupted later comparisons.",
+        "insight": "",
+        "result": "forgot",
+        "reviewedAt": "2026-08-30T10:45:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f8c",
+        "createdAt": "2026-10-11T18:06:14.486Z",
+        "updatedAt": "2026-10-11T18:06:14.486Z"
+      }
+    ],
+    "createdAt": "2026-08-05T10:59:00.000Z",
+    "updatedAt": "2026-09-05T10:55:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f8d",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Merge Intervals",
+    "description": "Merge all overlapping intervals and return the disjoint result sorted by start.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/merge-intervals/",
+    "difficulty": "Medium",
+    "topics": [
+      "Intervals",
+      "Array",
+      "Sorting"
+    ],
+    "companies": [
+      "Meta",
+      "Google"
+    ],
+    "status": "solved",
+    "notes": "Sort FIRST — merging without sorting is the classic mistake.",
+    "approach": "Sort by start, then merge greedily: overlap iff next.start <= current.end.",
+    "code": "function merge(intervals) {\n  intervals.sort((a, b) => a[0] - b[0]);\n  const out = [];\n  for (const iv of intervals) {\n    const last = out[out.length - 1];\n    if (last && iv[0] <= last[1]) last[1] = Math.max(last[1], iv[1]);\n    else out.push([...iv]);\n  }\n  return out;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n log n)",
+    "spaceComplexity": "O(n)",
+    "solvedAt": "2026-08-09T06:45:00.000Z",
+    "solvedDateKey": "2026-08-09",
+    "revision": {
+      "nextReviewDate": "2026-10-17T00:00:00.000Z",
+      "lastReviewedAt": "2026-10-03T08:25:00.000Z",
+      "revisionCount": 9,
+      "memoryStrength": 54,
+      "status": "scheduled",
+      "interval": 14,
+      "lastResult": "good",
+      "resultStreak": 2,
+      "weakFlags": [],
+      "totalRevisionSeconds": 540
+    },
+    "mistakes": [
+      {
+        "forgotWhat": "That a monotonic deque gives the sliding-window extremum in O(n).",
+        "gotStuck": "",
+        "mistake": "",
+        "insight": "Whenever a window needs min/max, think monotonic deque first.",
+        "result": "forgot",
+        "reviewedAt": "2026-08-16T09:05:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f8e",
+        "createdAt": "2026-10-11T18:06:14.486Z",
+        "updatedAt": "2026-10-11T18:06:14.486Z"
+      },
+      {
+        "forgotWhat": "The core trick of reducing the problem to a known pattern.",
+        "gotStuck": "",
+        "mistake": "Went for the brute-force nested loop first and forgot the optimisation entirely.",
+        "insight": "",
+        "result": "forgot",
+        "reviewedAt": "2026-09-25T12:54:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f8f",
+        "createdAt": "2026-10-11T18:06:14.486Z",
+        "updatedAt": "2026-10-11T18:06:14.486Z"
+      }
+    ],
+    "createdAt": "2026-08-09T06:45:00.000Z",
+    "updatedAt": "2026-10-03T08:25:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f90",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Insert Interval",
+    "description": "Insert a new interval into a set of disjoint sorted intervals and merge as needed.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/insert-interval/",
+    "difficulty": "Medium",
+    "topics": [
+      "Intervals",
+      "Array"
+    ],
+    "companies": [
+      "Amazon"
+    ],
+    "status": "solved",
+    "notes": "Handles the no-overlap cases naturally if you compare starts and ends separately.",
+    "approach": "Three passes: copy all intervals ending before the new one, merge everything overlapping it, then copy the rest.",
+    "code": "function insert(intervals, ni) {\n  const out = [];\n  let i = 0;\n  while (i < intervals.length && intervals[i][1] < ni[0]) out.push(intervals[i++]);\n  while (i < intervals.length && intervals[i][0] <= ni[1]) {\n    ni = [Math.min(ni[0], intervals[i][0]), Math.max(ni[1], intervals[i][1])];\n    i++;\n  }\n  out.push(ni);\n  while (i < intervals.length) out.push(intervals[i++]);\n  return out;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(n)",
+    "solvedAt": "2026-06-27T11:21:00.000Z",
+    "solvedDateKey": "2026-06-27",
+    "revision": {
+      "nextReviewDate": "2026-12-26T00:00:00.000Z",
+      "lastReviewedAt": "2026-09-07T08:48:00.000Z",
+      "revisionCount": 4,
+      "memoryStrength": 95,
+      "status": "mastered",
+      "interval": 110,
+      "lastResult": "easy",
+      "resultStreak": 4,
+      "weakFlags": [],
+      "totalRevisionSeconds": 240
+    },
+    "mistakes": [],
+    "createdAt": "2026-06-27T11:21:00.000Z",
+    "updatedAt": "2026-09-07T08:48:00.000Z",
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c5f91",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "title": "Non-overlapping Intervals",
+    "description": "Return the minimum number of intervals to remove so the rest are non-overlapping.",
+    "examples": [],
+    "constraints": [],
+    "hints": [],
+    "platform": "LeetCode",
+    "externalLink": "https://leetcode.com/problems/non-overlapping-intervals/",
+    "difficulty": "Medium",
+    "topics": [
+      "Intervals",
+      "Greedy",
+      "Sorting"
+    ],
+    "companies": [
+      "Google"
+    ],
+    "status": "solved",
+    "notes": "Sorting by end is the key — by start it fails.",
+    "approach": "Sort by END and greedily keep the interval finishing earliest; count the skips.",
+    "code": "function eraseOverlapIntervals(intervals) {\n  intervals.sort((a, b) => a[1] - b[1]);\n  let keep = 0, end = -Infinity;\n  for (const [s, e] of intervals) {\n    if (s >= end) { keep++; end = e; }\n  }\n  return intervals.length - keep;\n}",
+    "language": "JavaScript",
+    "timeComplexity": "O(n log n)",
+    "spaceComplexity": "O(1)",
+    "solvedAt": "2026-07-20T08:31:00.000Z",
+    "solvedDateKey": "2026-07-20",
+    "revision": {
+      "nextReviewDate": "2026-10-15T00:00:00.000Z",
+      "lastReviewedAt": "2026-10-01T13:17:00.000Z",
+      "revisionCount": 7,
+      "memoryStrength": 59,
+      "status": "scheduled",
+      "interval": 14,
+      "lastResult": "good",
+      "resultStreak": 2,
+      "weakFlags": [],
+      "totalRevisionSeconds": 420
+    },
+    "mistakes": [
+      {
+        "forgotWhat": "Base case / termination condition of the recursion.",
+        "gotStuck": "",
+        "mistake": "Off-by-one in the base case — infinite recursion on the edge input.",
+        "insight": "",
+        "result": "hard",
+        "reviewedAt": "2026-09-07T11:35:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f92",
+        "createdAt": "2026-10-11T18:06:14.486Z",
+        "updatedAt": "2026-10-11T18:06:14.486Z"
+      },
+      {
+        "forgotWhat": "",
+        "gotStuck": "",
+        "mistake": "",
+        "insight": "Draw the state transition table first; the recurrence writes itself.",
+        "result": "forgot",
+        "reviewedAt": "2026-09-23T11:35:00.000Z",
+        "_id": "6acbd016591d83f5d41c5f93",
+        "createdAt": "2026-10-11T18:06:14.486Z",
+        "updatedAt": "2026-10-11T18:06:14.486Z"
+      }
+    ],
+    "createdAt": "2026-07-20T08:31:00.000Z",
+    "updatedAt": "2026-10-01T13:17:00.000Z",
+    "__v": 0
+  }
+]

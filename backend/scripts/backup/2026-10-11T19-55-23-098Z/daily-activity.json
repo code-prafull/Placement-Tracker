@@ -1,0 +1,1654 @@
+[
+  {
+    "_id": "6acbd016591d83f5d41c6112",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-06-11",
+    "solvedCount": 2,
+    "revisedCount": 2,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 2,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6113",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-06-18",
+    "solvedCount": 0,
+    "revisedCount": 2,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 1,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6114",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-07-08",
+    "solvedCount": 1,
+    "revisedCount": 2,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 1,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6115",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-08-17",
+    "solvedCount": 0,
+    "revisedCount": 5,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 5,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6116",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-07-25",
+    "solvedCount": 0,
+    "revisedCount": 2,
+    "results": {
+      "forgot": 2,
+      "hard": 0,
+      "good": 0,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6117",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-08-15",
+    "solvedCount": 0,
+    "revisedCount": 5,
+    "results": {
+      "forgot": 1,
+      "hard": 1,
+      "good": 1,
+      "easy": 2
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6118",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-07-26",
+    "solvedCount": 1,
+    "revisedCount": 4,
+    "results": {
+      "forgot": 1,
+      "hard": 0,
+      "good": 2,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6119",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-08-06",
+    "solvedCount": 1,
+    "revisedCount": 7,
+    "results": {
+      "forgot": 4,
+      "hard": 2,
+      "good": 1,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c611a",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-08-10",
+    "solvedCount": 0,
+    "revisedCount": 4,
+    "results": {
+      "forgot": 2,
+      "hard": 0,
+      "good": 2,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c611b",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-08-18",
+    "solvedCount": 2,
+    "revisedCount": 7,
+    "results": {
+      "forgot": 0,
+      "hard": 4,
+      "good": 3,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c611c",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-08-22",
+    "solvedCount": 2,
+    "revisedCount": 9,
+    "results": {
+      "forgot": 2,
+      "hard": 1,
+      "good": 4,
+      "easy": 2
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c611d",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-08-23",
+    "solvedCount": 0,
+    "revisedCount": 2,
+    "results": {
+      "forgot": 0,
+      "hard": 1,
+      "good": 1,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c611e",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-08-25",
+    "solvedCount": 0,
+    "revisedCount": 4,
+    "results": {
+      "forgot": 1,
+      "hard": 2,
+      "good": 0,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c611f",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-08-27",
+    "solvedCount": 1,
+    "revisedCount": 6,
+    "results": {
+      "forgot": 1,
+      "hard": 1,
+      "good": 2,
+      "easy": 2
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6120",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-09-10",
+    "solvedCount": 1,
+    "revisedCount": 8,
+    "results": {
+      "forgot": 2,
+      "hard": 3,
+      "good": 1,
+      "easy": 2
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6121",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-06-07",
+    "solvedCount": 1,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 0,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6122",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-06-21",
+    "solvedCount": 0,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 1,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6123",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-07-19",
+    "solvedCount": 0,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 0,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6124",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-09-24",
+    "solvedCount": 0,
+    "revisedCount": 5,
+    "results": {
+      "forgot": 1,
+      "hard": 0,
+      "good": 3,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6125",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-09-05",
+    "solvedCount": 1,
+    "revisedCount": 7,
+    "results": {
+      "forgot": 2,
+      "hard": 1,
+      "good": 2,
+      "easy": 2
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6126",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-09-12",
+    "solvedCount": 1,
+    "revisedCount": 5,
+    "results": {
+      "forgot": 3,
+      "hard": 1,
+      "good": 1,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6127",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-09-13",
+    "solvedCount": 0,
+    "revisedCount": 3,
+    "results": {
+      "forgot": 1,
+      "hard": 0,
+      "good": 1,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6128",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-09-20",
+    "solvedCount": 0,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 1,
+      "hard": 0,
+      "good": 0,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6129",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-09-27",
+    "solvedCount": 0,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 1,
+      "hard": 0,
+      "good": 0,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c612a",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-09-28",
+    "solvedCount": 0,
+    "revisedCount": 3,
+    "results": {
+      "forgot": 3,
+      "hard": 0,
+      "good": 0,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c612b",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-09-29",
+    "solvedCount": 0,
+    "revisedCount": 3,
+    "results": {
+      "forgot": 1,
+      "hard": 0,
+      "good": 0,
+      "easy": 2
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c612c",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-09-30",
+    "solvedCount": 0,
+    "revisedCount": 4,
+    "results": {
+      "forgot": 1,
+      "hard": 2,
+      "good": 1,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c612d",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-10-01",
+    "solvedCount": 0,
+    "revisedCount": 5,
+    "results": {
+      "forgot": 0,
+      "hard": 2,
+      "good": 3,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c612e",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-05-31",
+    "solvedCount": 1,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 0,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c612f",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-06-14",
+    "solvedCount": 0,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 0,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6130",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-07-18",
+    "solvedCount": 0,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 1,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6131",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-08-19",
+    "solvedCount": 1,
+    "revisedCount": 4,
+    "results": {
+      "forgot": 1,
+      "hard": 0,
+      "good": 0,
+      "easy": 3
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6132",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-09-02",
+    "solvedCount": 0,
+    "revisedCount": 3,
+    "results": {
+      "forgot": 1,
+      "hard": 0,
+      "good": 2,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6133",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-06-08",
+    "solvedCount": 2,
+    "revisedCount": 3,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 1,
+      "easy": 2
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6134",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-06-22",
+    "solvedCount": 0,
+    "revisedCount": 2,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 1,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6135",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-07-16",
+    "solvedCount": 3,
+    "revisedCount": 4,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 4,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6136",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-07-23",
+    "solvedCount": 1,
+    "revisedCount": 4,
+    "results": {
+      "forgot": 1,
+      "hard": 0,
+      "good": 0,
+      "easy": 3
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6137",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-08-09",
+    "solvedCount": 1,
+    "revisedCount": 4,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 3,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6138",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-09-19",
+    "solvedCount": 0,
+    "revisedCount": 7,
+    "results": {
+      "forgot": 2,
+      "hard": 1,
+      "good": 3,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6139",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-08-11",
+    "solvedCount": 1,
+    "revisedCount": 4,
+    "results": {
+      "forgot": 1,
+      "hard": 1,
+      "good": 2,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c613a",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-09-01",
+    "solvedCount": 0,
+    "revisedCount": 5,
+    "results": {
+      "forgot": 1,
+      "hard": 0,
+      "good": 2,
+      "easy": 2
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c613b",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-10-05",
+    "solvedCount": 0,
+    "revisedCount": 2,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 1,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c613c",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-08-13",
+    "solvedCount": 0,
+    "revisedCount": 4,
+    "results": {
+      "forgot": 1,
+      "hard": 0,
+      "good": 2,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c613d",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-06-25",
+    "solvedCount": 1,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 1,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c613e",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-07-02",
+    "solvedCount": 0,
+    "revisedCount": 2,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 0,
+      "easy": 2
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c613f",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-07-21",
+    "solvedCount": 0,
+    "revisedCount": 2,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 1,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6140",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-07-24",
+    "solvedCount": 2,
+    "revisedCount": 6,
+    "results": {
+      "forgot": 2,
+      "hard": 0,
+      "good": 1,
+      "easy": 3
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6141",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-08-02",
+    "solvedCount": 0,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 0,
+      "hard": 1,
+      "good": 0,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6142",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-08-14",
+    "solvedCount": 2,
+    "revisedCount": 5,
+    "results": {
+      "forgot": 3,
+      "hard": 1,
+      "good": 1,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6143",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-08-29",
+    "solvedCount": 0,
+    "revisedCount": 5,
+    "results": {
+      "forgot": 2,
+      "hard": 0,
+      "good": 2,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6144",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-10-03",
+    "solvedCount": 0,
+    "revisedCount": 5,
+    "results": {
+      "forgot": 0,
+      "hard": 2,
+      "good": 2,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6145",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-10-10",
+    "solvedCount": 0,
+    "revisedCount": 2,
+    "results": {
+      "forgot": 1,
+      "hard": 0,
+      "good": 1,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6146",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-10-11",
+    "solvedCount": 6,
+    "revisedCount": 8,
+    "results": {
+      "forgot": 1,
+      "hard": 0,
+      "good": 5,
+      "easy": 2
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6147",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-09-06",
+    "solvedCount": 0,
+    "revisedCount": 5,
+    "results": {
+      "forgot": 2,
+      "hard": 0,
+      "good": 2,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6148",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-09-21",
+    "solvedCount": 0,
+    "revisedCount": 2,
+    "results": {
+      "forgot": 1,
+      "hard": 0,
+      "good": 0,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6149",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-09-22",
+    "solvedCount": 0,
+    "revisedCount": 2,
+    "results": {
+      "forgot": 1,
+      "hard": 0,
+      "good": 1,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c614a",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-09-23",
+    "solvedCount": 0,
+    "revisedCount": 2,
+    "results": {
+      "forgot": 1,
+      "hard": 0,
+      "good": 0,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c614b",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-08-20",
+    "solvedCount": 1,
+    "revisedCount": 4,
+    "results": {
+      "forgot": 3,
+      "hard": 0,
+      "good": 0,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c614c",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-09-03",
+    "solvedCount": 1,
+    "revisedCount": 3,
+    "results": {
+      "forgot": 2,
+      "hard": 0,
+      "good": 1,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c614d",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-09-11",
+    "solvedCount": 1,
+    "revisedCount": 4,
+    "results": {
+      "forgot": 1,
+      "hard": 0,
+      "good": 1,
+      "easy": 2
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c614e",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-09-25",
+    "solvedCount": 0,
+    "revisedCount": 6,
+    "results": {
+      "forgot": 3,
+      "hard": 1,
+      "good": 2,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c614f",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-09-26",
+    "solvedCount": 0,
+    "revisedCount": 3,
+    "results": {
+      "forgot": 0,
+      "hard": 1,
+      "good": 1,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6150",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-10-02",
+    "solvedCount": 0,
+    "revisedCount": 3,
+    "results": {
+      "forgot": 1,
+      "hard": 0,
+      "good": 2,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6151",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-10-07",
+    "solvedCount": 0,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 0,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6152",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-07-17",
+    "solvedCount": 1,
+    "revisedCount": 2,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 2,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6153",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-07-27",
+    "solvedCount": 3,
+    "revisedCount": 8,
+    "results": {
+      "forgot": 3,
+      "hard": 1,
+      "good": 4,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6154",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-07-28",
+    "solvedCount": 3,
+    "revisedCount": 6,
+    "results": {
+      "forgot": 2,
+      "hard": 0,
+      "good": 3,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6155",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-07-29",
+    "solvedCount": 0,
+    "revisedCount": 2,
+    "results": {
+      "forgot": 2,
+      "hard": 0,
+      "good": 0,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6156",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-07-30",
+    "solvedCount": 0,
+    "revisedCount": 3,
+    "results": {
+      "forgot": 1,
+      "hard": 0,
+      "good": 2,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6157",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-07-31",
+    "solvedCount": 0,
+    "revisedCount": 4,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 3,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6158",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-07-10",
+    "solvedCount": 1,
+    "revisedCount": 4,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 3,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6159",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-08-28",
+    "solvedCount": 0,
+    "revisedCount": 2,
+    "results": {
+      "forgot": 1,
+      "hard": 1,
+      "good": 0,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c615a",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-09-09",
+    "solvedCount": 0,
+    "revisedCount": 2,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 1,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c615b",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-09-14",
+    "solvedCount": 0,
+    "revisedCount": 5,
+    "results": {
+      "forgot": 0,
+      "hard": 1,
+      "good": 3,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c615c",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-10-08",
+    "solvedCount": 0,
+    "revisedCount": 4,
+    "results": {
+      "forgot": 0,
+      "hard": 2,
+      "good": 2,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c615d",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-07-03",
+    "solvedCount": 4,
+    "revisedCount": 4,
+    "results": {
+      "forgot": 0,
+      "hard": 1,
+      "good": 3,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c615e",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-08-21",
+    "solvedCount": 1,
+    "revisedCount": 5,
+    "results": {
+      "forgot": 3,
+      "hard": 0,
+      "good": 1,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c615f",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-10-09",
+    "solvedCount": 0,
+    "revisedCount": 2,
+    "results": {
+      "forgot": 0,
+      "hard": 1,
+      "good": 1,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6160",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-06-06",
+    "solvedCount": 1,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 1,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6161",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-06-13",
+    "solvedCount": 0,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 0,
+      "hard": 1,
+      "good": 0,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6162",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-06-17",
+    "solvedCount": 0,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 0,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6163",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-07-05",
+    "solvedCount": 0,
+    "revisedCount": 3,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 0,
+      "easy": 3
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6164",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-08-04",
+    "solvedCount": 2,
+    "revisedCount": 7,
+    "results": {
+      "forgot": 2,
+      "hard": 3,
+      "good": 1,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6165",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-08-16",
+    "solvedCount": 0,
+    "revisedCount": 5,
+    "results": {
+      "forgot": 2,
+      "hard": 2,
+      "good": 1,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6166",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-08-24",
+    "solvedCount": 0,
+    "revisedCount": 2,
+    "results": {
+      "forgot": 1,
+      "hard": 0,
+      "good": 0,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6167",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-08-26",
+    "solvedCount": 0,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 1,
+      "hard": 0,
+      "good": 0,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6168",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-09-04",
+    "solvedCount": 1,
+    "revisedCount": 5,
+    "results": {
+      "forgot": 3,
+      "hard": 1,
+      "good": 1,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6169",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-08-03",
+    "solvedCount": 1,
+    "revisedCount": 5,
+    "results": {
+      "forgot": 3,
+      "hard": 0,
+      "good": 0,
+      "easy": 2
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c616a",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-09-08",
+    "solvedCount": 1,
+    "revisedCount": 2,
+    "results": {
+      "forgot": 0,
+      "hard": 2,
+      "good": 0,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c616b",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-07-22",
+    "solvedCount": 0,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 1,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c616c",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-08-08",
+    "solvedCount": 1,
+    "revisedCount": 4,
+    "results": {
+      "forgot": 1,
+      "hard": 1,
+      "good": 1,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c616d",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-06-01",
+    "solvedCount": 1,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 1,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c616e",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-07-01",
+    "solvedCount": 1,
+    "revisedCount": 2,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 2,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c616f",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-06-02",
+    "solvedCount": 1,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 1,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6170",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-06-09",
+    "solvedCount": 0,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 1,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6171",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-06-23",
+    "solvedCount": 1,
+    "revisedCount": 2,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 2,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6172",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-09-15",
+    "solvedCount": 0,
+    "revisedCount": 2,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 2,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6173",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-07-20",
+    "solvedCount": 2,
+    "revisedCount": 3,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 2,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6174",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-07-12",
+    "solvedCount": 0,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 0,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6175",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-08-07",
+    "solvedCount": 0,
+    "revisedCount": 6,
+    "results": {
+      "forgot": 3,
+      "hard": 0,
+      "good": 2,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6176",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-08-30",
+    "solvedCount": 0,
+    "revisedCount": 4,
+    "results": {
+      "forgot": 3,
+      "hard": 0,
+      "good": 0,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6177",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-08-31",
+    "solvedCount": 0,
+    "revisedCount": 2,
+    "results": {
+      "forgot": 1,
+      "hard": 0,
+      "good": 1,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6178",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-09-07",
+    "solvedCount": 0,
+    "revisedCount": 4,
+    "results": {
+      "forgot": 1,
+      "hard": 2,
+      "good": 0,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6179",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-09-17",
+    "solvedCount": 0,
+    "revisedCount": 3,
+    "results": {
+      "forgot": 0,
+      "hard": 1,
+      "good": 1,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c617a",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-09-16",
+    "solvedCount": 0,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 1,
+      "hard": 0,
+      "good": 0,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c617b",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-07-06",
+    "solvedCount": 1,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 1,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c617c",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-08-05",
+    "solvedCount": 2,
+    "revisedCount": 5,
+    "results": {
+      "forgot": 1,
+      "hard": 0,
+      "good": 2,
+      "easy": 2
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c617d",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-08-12",
+    "solvedCount": 1,
+    "revisedCount": 3,
+    "results": {
+      "forgot": 0,
+      "hard": 1,
+      "good": 2,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c617e",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-07-07",
+    "solvedCount": 1,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 1,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c617f",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-07-14",
+    "solvedCount": 0,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 0,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6180",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-10-06",
+    "solvedCount": 0,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 0,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6181",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-06-05",
+    "solvedCount": 1,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 1,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6182",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-06-12",
+    "solvedCount": 0,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 1,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6183",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-06-26",
+    "solvedCount": 0,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 0,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6184",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-07-15",
+    "solvedCount": 1,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 1,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6185",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-06-27",
+    "solvedCount": 1,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 1,
+      "easy": 0
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbd016591d83f5d41c6186",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "date": "2026-07-04",
+    "solvedCount": 0,
+    "revisedCount": 1,
+    "results": {
+      "forgot": 0,
+      "hard": 0,
+      "good": 0,
+      "easy": 1
+    },
+    "__v": 0
+  },
+  {
+    "_id": "6acbe57dc904a6ee1024b6e5",
+    "date": "2026-10-12",
+    "userId": "6acbd016591d83f5d41c5f0c",
+    "__v": 0,
+    "results": {
+      "easy": 0,
+      "forgot": 0,
+      "good": 1,
+      "hard": 0
+    },
+    "revisedCount": 1,
+    "solvedCount": 1
+  }
+]

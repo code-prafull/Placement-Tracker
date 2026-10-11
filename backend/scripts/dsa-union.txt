@@ -1,0 +1,382 @@
+Phase 1|Math + Geometry|GCD / HCF
+Phase 1|Math + Geometry|Check for Prime
+Phase 1|Math + Geometry|Pow(x, n)
+Phase 1|Math + Geometry|Multiply Strings
+Phase 1|Math + Geometry|Rotate Image
+Phase 1|Math + Geometry|Spiral Matrix
+Phase 1|Math + Geometry|Set Matrix Zeroes
+Phase 1|Math + Geometry|Happy Number
+Phase 1|Math + Geometry|Plus One
+Phase 1|Math + Geometry|Fibonacci Number
+Phase 1|Math + Geometry|Reverse a Number
+Phase 1|Math + Geometry|Palindrome Number
+Phase 1|Math + Geometry|Count Digits
+Phase 1|Math + Geometry|Print All Divisors
+Phase 1|Math + Geometry|Factorial of N
+Phase 1|Math + Geometry|Factorial Trailing Zeroes
+Phase 1|Math + Geometry|Sum First N Numbers
+Phase 1|Math + Geometry|Print 1 to N Recursion
+Phase 1|Math + Geometry|Reverse an Array
+Phase 1|Math + Geometry|Check String Palindrome
+Phase 1|Math + Geometry|Hashing Theory
+Phase 1|Math + Geometry|Count Frequencies
+Phase 1|Math + Geometry|Find Highest/Lowest Frequency
+Phase 1|Math + Geometry|Detect Squares
+Phase 1|Math + Geometry|Max Points on a Line
+Phase 1|Array + Two Pointer|Two Sum
+Phase 1|Array + Two Pointer|Remove Duplicates from Sorted Array
+Phase 1|Array + Two Pointer|Move Zeroes / Move Zeros to End
+Phase 1|Array + Two Pointer|Missing Number
+Phase 1|Array + Two Pointer|Longest Subarray Sum K
+Phase 1|Array + Two Pointer|Sort 0s, 1s and 2s
+Phase 1|Array + Two Pointer|Majority Element (> n/2)
+Phase 1|Array + Two Pointer|Maximum Subarray (Kadane's Algorithm)
+Phase 1|Array + Two Pointer|Best Time to Buy and Sell Stock
+Phase 1|Array + Two Pointer|Best Time to Buy and Sell Stock II
+Phase 1|Array + Two Pointer|Next Permutation
+Phase 1|Array + Two Pointer|Longest Consecutive Sequence
+Phase 1|Array + Two Pointer|Rotate Array
+Phase 1|Array + Two Pointer|3Sum
+Phase 1|Array + Two Pointer|Merge Overlapping Intervals
+Phase 1|Array + Two Pointer|Merge Sorted Array / Merge Two Sorted Arrays
+Phase 1|Array + Two Pointer|Maximum Product Subarray
+Phase 1|Array + Two Pointer|Trapping Rain Water
+Phase 1|Array + Two Pointer|Product of Array Except Self
+Phase 1|Array + Two Pointer|Container With Most Water
+Phase 1|Array + Two Pointer|Intersection of Two Arrays II
+Phase 1|Array + Two Pointer|Third Maximum Number
+Phase 1|Array + Two Pointer|Valid Palindrome
+Phase 1|Array + Two Pointer|Find the Union of Two Arrays
+Phase 1|Array + Two Pointer|Leaders in an Array
+Phase 1|Array + Two Pointer|Majority Element (> n/3)
+Phase 1|Array + Two Pointer|Is Subsequence
+Phase 1|Array + Two Pointer|Two Sum II
+Phase 1|Array + Two Pointer|Count Subarrays with XOR
+Phase 1|Array + Two Pointer|Count Subarrays with Sum K
+Phase 1|Array + Two Pointer|Second Largest Element
+Phase 1|Array + Two Pointer|Check if Array Is Sorted
+Phase 1|Array + Two Pointer|Left Rotate Array
+Phase 1|Array + Two Pointer|Left Rotate by D Places
+Phase 1|Array + Two Pointer|Pascal's Triangle
+Phase 1|Array + Two Pointer|Largest Subarray with 0 Sum
+Phase 1|Array + Two Pointer|Find Repeating and Missing Numbers
+Phase 1|Array + Two Pointer|Remove Duplicates from Sorted Array II
+Phase 1|Array + Two Pointer|First Missing Positive
+Phase 1|Array + Two Pointer|Find Kth Missing/Smallest Element
+Phase 1|Sliding Window|Longest Substring Without Repeating Characters
+Phase 1|Sliding Window|Longest Repeating Character Replacement
+Phase 1|Sliding Window|Permutation in String
+Phase 1|Sliding Window|Minimum Window Substring
+Phase 1|Sliding Window|Sliding Window Maximum
+Phase 1|Sliding Window|Minimum Size Subarray Sum
+Phase 1|Sliding Window|Fruit Into Baskets
+Phase 1|Sliding Window|Max Consecutive Ones III
+Phase 1|Sliding Window|Maximum Sum Subarray of Size K
+Phase 1|Sliding Window|Binary Subarrays With Sum
+Phase 1|Sliding Window|Longest Subarray with K Distinct
+Phase 1|Sliding Window|Longest Subarray with Sum Target
+Phase 1|Sliding Window|Subarray Product Less Than K
+Phase 1|Sliding Window|Longest Substring with 2 Distinct Characters
+Phase 1|Sliding Window|Longest Subarray with K Negatives
+Phase 1|Binary Search|Lower Bound / Upper Bound
+Phase 1|Binary Search|Search Insert Position
+Phase 1|Binary Search|Find First and Last Position of Element in Sorted Array
+Phase 1|Binary Search|Search in Rotated Sorted Array
+Phase 1|Binary Search|Find Minimum in Rotated Sorted Array
+Phase 1|Binary Search|Single Element in a Sorted Array
+Phase 1|Binary Search|Find Peak Element
+Phase 1|Binary Search|Square Root using Binary Search
+Phase 1|Binary Search|Search a 2D Matrix
+Phase 1|Binary Search|Search a 2D Matrix II
+Phase 1|Binary Search|Koko Eating Bananas
+Phase 1|Binary Search|Capacity to Ship Packages Within D Days
+Phase 1|Binary Search|Aggressive Cows
+Phase 1|Binary Search|Book Allocation Problem
+Phase 1|Binary Search|First Bad Version
+Phase 1|Binary Search|Guess Number Higher or Lower
+Phase 1|Binary Search|Peak Index in a Mountain Array
+Phase 1|Binary Search|Find K Closest Elements
+Phase 1|Binary Search|Find Kth Smallest Element in a Sorted Matrix
+Phase 1|Binary Search|Search in Rotated Sorted Array II
+Phase 1|Binary Search|Divide Two Integers
+Phase 1|Binary Search|Median of Two Sorted Arrays
+Phase 1|Binary Search|Floor / Ceil (Lower / Upper Bound)
+Phase 1|Binary Search|Split Array Largest Sum
+Phase 1|Binary Search|Kth Element of Two Sorted Arrays
+Phase 1|Binary Search|Peak Element in 2D Matrix
+Phase 1|Binary Search|Time Based Key-Value Store
+Phase 2|Stack|Valid Parentheses
+Phase 2|Stack|Min Stack
+Phase 2|Stack|Next Greater Element
+Phase 2|Stack|Daily Temperatures
+Phase 2|Stack|Evaluate Reverse Polish Notation
+Phase 2|Stack|Largest Rectangle in Histogram
+Phase 2|Stack|Asteroid Collision
+Phase 2|Stack|Remove K Digits
+Phase 2|Stack|Sum of Subarray Minimums
+Phase 2|Stack|Stock Span Problem
+Phase 2|Stack|Implement Queue using Stacks
+Phase 2|Stack|Implement Stack using Queues
+Phase 2|Stack|Remove Outermost Parentheses
+Phase 2|Stack|Baseball Game
+Phase 2|Stack|Simplify Path
+Phase 2|Stack|Basic Calculator
+Phase 2|Stack|Basic Calculator II
+Phase 2|Stack|Remove Duplicate Letters
+Phase 2|Stack|Longest Valid Parentheses
+Phase 2|Stack|Trapping Rain Water (Stack)
+Phase 2|Stack|Car Fleet
+Phase 2|Stack|Celebrity Problem
+Phase 2|Stack|Queue + Hashing / Design
+Phase 2|Stack|Design Circular Queue
+Phase 2|Stack|Design Circular Deque
+Phase 2|Stack|First Unique Character in a String
+Phase 2|Stack|Design HashSet
+Phase 2|Stack|Design HashMap
+Phase 2|Stack|Number of Recent Calls
+Phase 2|Stack|First Unique Number
+Phase 2|Stack|Design Twitter
+Phase 2|Stack|Task Scheduler
+Phase 2|Stack|Sliding Window Median
+Phase 2|Stack|Shortest Subarray with Sum at Least K
+Phase 2|Stack|Find K Pairs with Smallest Sums
+Phase 2|Stack|Find the Most Competitive Subsequence
+Phase 2|Linked List|Reverse Linked List
+Phase 2|Linked List|Middle of the Linked List
+Phase 2|Linked List|Linked List Cycle Detection
+Phase 2|Linked List|Find Starting Point of Loop
+Phase 2|Linked List|Merge Two Sorted Lists
+Phase 2|Linked List|Remove Nth Node From End
+Phase 2|Linked List|Palindrome Linked List
+Phase 2|Linked List|Add Two Numbers
+Phase 2|Linked List|Intersection of Two Linked Lists
+Phase 2|Linked List|Sort List
+Phase 2|Linked List|Reorder List
+Phase 2|Linked List|Copy List with Random Pointer
+Phase 2|Linked List|Reverse Nodes in K-Group
+Phase 2|Linked List|Remove Linked List Elements
+Phase 2|Linked List|Odd Even Linked List
+Phase 2|Linked List|Swap Nodes in Pairs
+Phase 2|Linked List|Merge K Sorted Lists
+Phase 2|Linked List|LRU Cache
+Phase 2|Linked List|Design Linked List
+Phase 2|Linked List|Split Linked List in Parts
+Phase 2|Linked List|Flatten a Multilevel Doubly Linked List
+Phase 2|Linked List|Delete Middle Node
+Phase 2|Linked List|Rotate Linked List
+Phase 2|Linked List|Reverse Linked List II
+Phase 2|Linked List|Partition List
+Phase 2|Linked List|Remove Duplicates from Sorted List II
+Phase 2|Linked List|Add 1 to Linked List
+Phase 2|Linked List|Flattening of Linked List
+Phase 2|Linked List|Delete Loop in Linked List
+Phase 2|Linked List|Find Duplicate Number (Linked List)
+Phase 2|Trees (Binary Tree + BST)|Preorder / Inorder / Postorder / Level Order Traversal
+Phase 2|Trees (Binary Tree + BST)|Maximum Depth of Binary Tree
+Phase 2|Trees (Binary Tree + BST)|Balanced Binary Tree
+Phase 2|Trees (Binary Tree + BST)|Diameter of Binary Tree
+Phase 2|Trees (Binary Tree + BST)|Same Tree
+Phase 2|Trees (Binary Tree + BST)|Symmetric Tree
+Phase 2|Trees (Binary Tree + BST)|Zigzag Level Order Traversal
+Phase 2|Trees (Binary Tree + BST)|Left View / Right View of Binary Tree
+Phase 2|Trees (Binary Tree + BST)|Lowest Common Ancestor of a Binary Tree
+Phase 2|Trees (Binary Tree + BST)|Construct Binary Tree from Inorder + Preorder
+Phase 2|Trees (Binary Tree + BST)|Construct Binary Tree from Inorder + Postorder
+Phase 2|Trees (Binary Tree + BST)|Binary Tree Maximum Path Sum
+Phase 2|Trees (Binary Tree + BST)|Serialize and Deserialize Binary Tree
+Phase 2|Trees (Binary Tree + BST)|Flatten Binary Tree to Linked List
+Phase 2|Trees (Binary Tree + BST)|Binary Tree Right Side View
+Phase 2|Trees (Binary Tree + BST)|Nodes at Distance K
+Phase 2|Trees (Binary Tree + BST)|Search / Insert / Delete in BST
+Phase 2|Trees (Binary Tree + BST)|Validate Binary Search Tree
+Phase 2|Trees (Binary Tree + BST)|Kth Smallest Element in a BST
+Phase 2|Trees (Binary Tree + BST)|Lowest Common Ancestor in BST
+Phase 2|Trees (Binary Tree + BST)|BST Iterator
+Phase 2|Trees (Binary Tree + BST)|Minimum Depth of Binary Tree
+Phase 2|Trees (Binary Tree + BST)|Subtree of Another Tree
+Phase 2|Trees (Binary Tree + BST)|Invert Binary Tree
+Phase 2|Trees (Binary Tree + BST)|Path Sum
+Phase 2|Trees (Binary Tree + BST)|Path Sum II
+Phase 2|Trees (Binary Tree + BST)|Count Complete Tree Nodes
+Phase 2|Trees (Binary Tree + BST)|Construct Binary Tree from String
+Phase 2|Trees (Binary Tree + BST)|Populating Next Right Pointers in Each Node
+Phase 2|Trees (Binary Tree + BST)|Populating Next Right Pointers in Each Node II
+Phase 2|Trees (Binary Tree + BST)|House Robber III
+Phase 2|Trees (Binary Tree + BST)|Closest Binary Search Tree Value II
+Phase 2|Trees (Binary Tree + BST)|Convert Sorted List to Binary Search Tree
+Phase 2|Trees (Binary Tree + BST)|Convert Sorted Array to Binary Search Tree
+Phase 2|Trees (Binary Tree + BST)|Maximum Binary Tree
+Phase 2|Trees (Binary Tree + BST)|Root to Node Path
+Phase 2|Trees (Binary Tree + BST)|Count Good Nodes
+Phase 2|Trees (Binary Tree + BST)|Inorder Successor / Predecessor
+Phase 2|Trees (Binary Tree + BST)|Find Min / Max in BST
+Phase 2|Trees (Binary Tree + BST)|Vertical Order Traversal
+Phase 2|Trees (Binary Tree + BST)|Top View of Binary Tree
+Phase 2|Trees (Binary Tree + BST)|Bottom View of Binary Tree
+Phase 2|Trees (Binary Tree + BST)|Sum Root to Leaf Numbers
+Phase 2|Trees (Binary Tree + BST)|Burn Tree from a Node
+Phase 2|Trees (Binary Tree + BST)|Floor / Ceil in BST
+Phase 2|Trees (Binary Tree + BST)|Recover BST
+Phase 2|Heap / Priority Queue|Kth Largest Element in an Array
+Phase 2|Heap / Priority Queue|K Closest Points to Origin
+Phase 2|Heap / Priority Queue|Find Median from Data Stream
+Phase 2|Heap / Priority Queue|Top K Frequent Elements
+Phase 2|Heap / Priority Queue|Connect N Ropes with Minimum Cost
+Phase 2|Heap / Priority Queue|Kth Largest Element in a Stream
+Phase 2|Heap / Priority Queue|Last Stone Weight
+Phase 2|Heap / Priority Queue|Kth Smallest Element
+Phase 2|Heap / Priority Queue|Sort a K-Sorted Array
+Phase 2|Heap / Priority Queue|IPO
+Phase 3|Greedy|Jump Game
+Phase 3|Greedy|Jump Game II
+Phase 3|Greedy|Gas Station
+Phase 3|Greedy|Partition Labels
+Phase 3|Greedy|Activity Selection / N Meetings in One Room
+Phase 3|Greedy|Minimum Platforms Required
+Phase 3|Greedy|Job Sequencing Problem
+Phase 3|Greedy|Fractional Knapsack
+Phase 3|Greedy|Valid Parenthesis String
+Phase 3|Greedy|Assign Cookies
+Phase 3|Greedy|Lemonade Change
+Phase 3|Greedy|Hand of Straights
+Phase 3|Greedy|Merge Triplets to Form Target
+Phase 3|Greedy|Stock Buy and Sell (Greedy)
+Phase 3|Recursion + Backtracking|Subsets
+Phase 3|Recursion + Backtracking|Subsets II
+Phase 3|Recursion + Backtracking|Combination Sum
+Phase 3|Recursion + Backtracking|Combination Sum II
+Phase 3|Recursion + Backtracking|Permutations
+Phase 3|Recursion + Backtracking|Combinations
+Phase 3|Recursion + Backtracking|Letter Combinations of a Phone Number
+Phase 3|Recursion + Backtracking|Palindrome Partitioning
+Phase 3|Recursion + Backtracking|Word Search
+Phase 3|Recursion + Backtracking|N-Queens
+Phase 3|Recursion + Backtracking|Generate Parentheses
+Phase 3|Recursion + Backtracking|Expression Add Operators
+Phase 3|Recursion + Backtracking|Unique Paths
+Phase 3|Recursion + Backtracking|Reverse String
+Phase 3|Recursion + Backtracking|Maximum Depth of Binary Tree (recursive)
+Phase 3|Recursion + Backtracking|Symmetric Tree (recursive)
+Phase 3|Recursion + Backtracking|Path Sum (recursive)
+Phase 3|Recursion + Backtracking|Regular Expression Matching
+Phase 3|Recursion + Backtracking|Palindrome Partitioning II
+Phase 3|Recursion + Backtracking|Word Search II
+Phase 3|Recursion + Backtracking|Wildcard Matching
+Phase 3|Recursion + Backtracking|Unique Paths III
+Phase 3|Recursion + Backtracking|Decode Ways
+Phase 3|Recursion + Backtracking|Rat in a Maze
+Phase 3|Recursion + Backtracking|Sudoku Solver
+Phase 3|Recursion + Backtracking|M-Coloring Problem
+Phase 3|Recursion + Backtracking|Print All Subsequences
+Phase 3|Recursion + Backtracking|Generate Binary Strings
+Phase 3|Recursion + Backtracking|Count Subsequences with Sum K
+Phase 3|Recursion + Backtracking|Subset Sum I
+Phase 3|Bit Manipulation|Single Number
+Phase 3|Bit Manipulation|Single Number II
+Phase 3|Bit Manipulation|Number of 1 Bits
+Phase 3|Bit Manipulation|Counting Bits
+Phase 3|Bit Manipulation|Missing Number (XOR)
+Phase 3|Bit Manipulation|Power of Two
+Phase 3|Bit Manipulation|Find Two Numbers Appearing Odd Times
+Phase 3|Bit Manipulation|Sum of Two Integers
+Phase 3|Bit Manipulation|Reverse Bits
+Phase 3|Bit Manipulation|XOR of Numbers from L to R
+Phase 3|Bit Manipulation|Count Bits to Flip A to B
+Phase 3|Bit Manipulation|XOR of Two Numbers
+Phase 3|Bit Manipulation|Maximum XOR of Two Numbers
+Phase 3|Intervals|Merge Intervals
+Phase 3|Intervals|Insert Interval
+Phase 3|Intervals|Non-overlapping Intervals
+Phase 3|Intervals|Meeting Rooms II
+Phase 3|Intervals|Minimum Number of Arrows to Burst Balloons
+Phase 3|Intervals|Meeting Rooms I
+Phase 3|Intervals|Summary Ranges
+Phase 3|Intervals|Minimum Interval to Include Each Query
+Phase 4|Graphs — DFS|DFS of Graph
+Phase 4|Graphs — DFS|Number of Islands
+Phase 4|Graphs — DFS|Clone Graph
+Phase 4|Graphs — DFS|Flood Fill
+Phase 4|Graphs — DFS|Cycle Detection in Undirected Graph (DFS)
+Phase 4|Graphs — DFS|Cycle Detection in Directed Graph (DFS)
+Phase 4|Graphs — DFS|Find Eventual Safe States
+Phase 4|Graphs — DFS|Number of Connected Components
+Phase 4|Graphs — DFS|Number of Provinces
+Phase 4|Graphs — DFS|Bridges in Graph
+Phase 4|Graphs — DFS|Critical Connections in a Network
+Phase 4|Graphs — DFS|Articulation Points
+Phase 4|Graphs — DFS|Kosaraju's Algorithm
+Phase 4|Graphs — DFS|Longest Path in DAG
+Phase 4|Graphs — BFS|BFS of Graph
+Phase 4|Graphs — BFS|Rotting Oranges
+Phase 4|Graphs — BFS|01 Matrix
+Phase 4|Graphs — BFS|Walls and Gates
+Phase 4|Graphs — BFS|Word Ladder
+Phase 4|Graphs — BFS|Shortest Path in Binary Matrix
+Phase 4|Graphs — BFS|Bipartite Graph (BFS)
+Phase 4|Graphs — BFS|Pacific Atlantic Water Flow
+Phase 4|Graphs — BFS|Bus Routes
+Phase 4|Graphs — BFS|Swim in Rising Water
+Phase 4|Graphs — BFS|Number of Islands II
+Phase 4|Graphs — BFS|Number of Islands III
+Phase 4|Graphs — BFS|Minimum Height Trees
+Phase 4|Graphs — BFS|Reconstruct Itinerary
+Phase 4|Graphs — BFS|Valid Sudoku
+Phase 4|Graphs — BFS|Evaluate Division
+Phase 4|Graphs — BFS|Number of Restricted Paths from First to Last Node
+Phase 4|Graphs — BFS|Minimum Swaps to Group All 1s Together
+Phase 4|Graphs — BFS|Optimize Water Distribution in a Village
+Phase 4|Graphs — BFS|Regions Cut by Slashes
+Phase 4|Graphs — BFS|Most Stones Removed with Same Row or Column
+Phase 4|Graphs — BFS|Multi-Source BFS Variants
+Phase 4|Topological Sort|Kahn's Algorithm
+Phase 4|Topological Sort|Cycle Detection in Directed Graph (BFS / Kahn)
+Phase 4|Topological Sort|Course Schedule I
+Phase 4|Topological Sort|Course Schedule II
+Phase 4|Topological Sort|Alien Dictionary
+Phase 4|Topological Sort|Course Schedule III
+Phase 4|1D Dynamic Programming|Climbing Stairs
+Phase 4|1D Dynamic Programming|House Robber
+Phase 4|1D Dynamic Programming|House Robber II
+Phase 4|1D Dynamic Programming|Coin Change
+Phase 4|1D Dynamic Programming|Word Break
+Phase 4|1D Dynamic Programming|Longest Increasing Subsequence
+Phase 4|1D Dynamic Programming|Best Time to Buy and Sell Stock with Cooldown
+Phase 4|1D Dynamic Programming|Minimum Cost Climbing Stairs
+Phase 4|1D Dynamic Programming|Maximum Sum of Non-Adjacent Elements (House Robber)
+Phase 4|1D Dynamic Programming|Buy and Sell Stock Variants
+Phase 4|1D Dynamic Programming|Jump Game (DP view)
+Phase 4|Multi-Dimensional DP|Grid Unique Paths
+Phase 4|Multi-Dimensional DP|Minimum Path Sum
+Phase 4|Multi-Dimensional DP|Subset Sum Equal to Target
+Phase 4|Multi-Dimensional DP|Partition Equal Subset Sum
+Phase 4|Multi-Dimensional DP|Longest Common Subsequence (LCS)
+Phase 4|Multi-Dimensional DP|Edit Distance
+Phase 4|Multi-Dimensional DP|Longest Palindromic Subsequence
+Phase 4|Multi-Dimensional DP|Unbounded Knapsack
+Phase 4|Multi-Dimensional DP|Longest Common Substring
+Phase 4|Multi-Dimensional DP|Count Distinct Subsequences
+Phase 4|Strings|Valid Anagram
+Phase 4|Strings|String to Integer (atoi) / Implement Atoi
+Phase 4|Strings|Implement strStr() / String Matching
+Phase 4|Strings|Count and Say
+Phase 4|Strings|Longest Common Prefix
+Phase 4|Strings|Group Anagrams
+Phase 4|Strings|Longest Palindromic Substring
+Phase 4|Strings|Zigzag Conversion
+Phase 4|Strings|Longest Substring with At Least K Repeating Characters
+Phase 4|Strings|Distinct Subsequences
+Phase 4|Strings|Encode and Decode Strings
+Phase 4|Strings|Text Justification
+Phase 4|Strings|Reverse Words in a String
+Phase 4|Strings|Sort Characters by Frequency
+Phase 4|Strings|Roman Numeral to Integer
+Phase 4|Strings|KMP Algorithm
+Phase 4|Strings|Isomorphic Strings
+Phase 4|Strings|Check Rotation of String
+Phase 4|Strings|Z-Function
+Phase 4|Strings|Minimum Bracket Reversals
+Phase 4|Strings|Integer to Roman
+Phase 4|Strings|Length of Last Word
+Phase 4|Trie|Implement Trie (Insert, Search, StartsWith)
+Phase 4|Trie|Design Add and Search Words Data Structure
+Phase 4|Trie|Longest Word in Dictionary
