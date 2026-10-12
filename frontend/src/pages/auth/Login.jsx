@@ -92,7 +92,7 @@ export default function Login() {
           <div className="mt-4 rounded-lg border border-slate-800 bg-slate-950/60 p-3 text-xs text-slate-400">
             <p className="font-semibold text-slate-300">Demo account</p>
             <p className="mt-1 font-mono">demo@dsaforge.app · demo1234</p>
-            <p className="mt-1 text-slate-500">Seeded with 69 questions & real revision history.</p>
+            <p className="mt-1 text-slate-500">382 questions · 19 topics · Phase 1–4 sheet.</p>
           </div>
         </div>
 
